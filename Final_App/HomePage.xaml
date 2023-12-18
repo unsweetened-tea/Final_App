@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Final_App.HomePage"
+             Title="HomePage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="8"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <HorizontalStackLayout Grid.Row="0">
+            <Label Text="PLACEHOLDER" />
+            <Button ImageSource="PLACEHOLDER"/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Grid.Row="1">
+            <Button/>
+            <Button/>
+            <Button/>
+        </HorizontalStackLayout>
+        <HorizontalStackLayout Grid.Row="2">
+            <Button Text="Practice Mode"/>
+            <Switch IsToggled="True"/>
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>
