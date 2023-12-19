@@ -27,4 +27,6 @@ public abstract class Character
 	public abstract void Attack(Character character, int baseDmg);
 	public abstract void Move(int x);
 
+	public abstract void Heal(int hp);
+
 }
