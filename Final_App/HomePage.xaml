@@ -33,7 +33,7 @@
             </Grid.RowDefinitions>
             <HorizontalStackLayout Grid.Row="0">
                 <Label Text="PLACEHOLDER" />
-                <Button ImageSource="PLACEHOLDER"/>
+                <Button ImageSource="COINS"/>
             </HorizontalStackLayout>
             <HorizontalStackLayout Grid.Row="1">
                 <Button/>
