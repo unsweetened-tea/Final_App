@@ -1,7 +1,7 @@
 ﻿using Final_App;
 using System;
 
-public class Enemy : Character
+public abstract class Enemy : Character
 {
     public int damage {  get; set; }
     public double speed { get; set; }
@@ -30,6 +30,13 @@ public class Enemy : Character
     {
         hp += 10;
     }
+
+    public abstract void Attack(Enemy enemy);
+
+    public abstract void Run(Enemy enemy, int percentHealth);
+
+    public abstract void update(Enemy enemy);
+
 
 
 }

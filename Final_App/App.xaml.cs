@@ -6,7 +6,12 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            var page = new NavigationPage(new MainPage())
+            {
+
+            };
+
+            MainPage = page;
         }
     }
 }

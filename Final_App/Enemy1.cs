@@ -8,16 +8,16 @@ namespace Final_App
 {
     internal class Enemy1 : Enemy
     {
-        private string ImageUrl { get; set; }
-        private int HP { get; set; }
-        private int MAXHP { get; set; }
-        private int xPos { get; set; }
-        private bool Flying { get; set; }
-        private bool WearingHat { get; set; }
-        private int percentHealth { get; set; }
-        private int dmg { get; set; }
-        private bool LongRange { get; set; }
-        public Enemy1(int xpos)
+        public string ImageUrl { get; set; }
+        public int HP { get; set; }
+        public int MAXHP { get; set; }
+        public int xPos { get; set; }
+        public bool Flying { get; set; }
+        public bool WearingHat { get; set; }
+        public int percentHealth { get; set; }
+        public int dmg { get; set; }
+        public bool LongRange { get; set; }
+        public Enemy1(int hp, int maxhp, int xpos) : base(hp, maxhp, xpos)
         {
             HP = 10;
             MAXHP = 10;

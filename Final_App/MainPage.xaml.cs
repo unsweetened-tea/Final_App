@@ -9,16 +9,22 @@
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private void customize_Clicked(object sender, EventArgs e)
         {
-            count++;
+            var page = new CustomizationPage();
+            Navigation.PushAsync(page);
+        }
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
+        private void play_Clicked(object sender, EventArgs e)
+        {
+            var page = new HomePage();
+            Navigation.PushAsync(page);
+        }
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        private void settings_Clicked(object sender, EventArgs e)
+        {
+            var page = new Settings();
+            Navigation.PushAsync(page);
         }
     }
 }
