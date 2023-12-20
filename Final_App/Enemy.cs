@@ -19,16 +19,16 @@ public abstract class Enemy : Character
         this.xPos -= dis;
     }
 
-    public override void Attack(Character character, int baseDmg)
+    public override void Attack(Character character)
     {
         if (character == null) return;
         if (character == this) return;
         character.HP -= damage;
     }
 
-    public override void Heal(int hp)
+    public override void Heal()
     {
-        hp += 10;
+        HP += 10;
     }
 
     public abstract void Attack(Enemy enemy);

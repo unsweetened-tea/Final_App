@@ -2,25 +2,47 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Final_App.HomePage"
-             Title="HomePage">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="8"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <HorizontalStackLayout Grid.Row="0">
-            <Label Text="PLACEHOLDER" />
-            <Button ImageSource="PLACEHOLDER"/>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout Grid.Row="1">
-            <Button/>
-            <Button/>
-            <Button/>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout Grid.Row="2">
-            <Button Text="Practice Mode"/>
-            <Switch IsToggled="True"/>
-        </HorizontalStackLayout>
-    </Grid>
+             Title="HomePage"
+             NavigationPage.HasNavigationBar="True">
+    <AbsoluteLayout>
+        <Button 
+        x:Name="start"
+        Text="START"
+        FontSize="60"
+        FontAttributes="Bold"
+        AbsoluteLayout.LayoutBounds="0, 1, 0.5, 1"
+        AbsoluteLayout.LayoutFlags="All"
+        Clicked="start_Clicked"
+         />
+
+        <Button 
+        x:Name="practice"
+        Text="PRACTICE"
+        FontSize="60"
+        FontAttributes="Bold"
+        AbsoluteLayout.LayoutBounds="1, 1, 0.5, 1"
+        AbsoluteLayout.LayoutFlags="All"
+        Clicked="practice_Clicked"
+         />
+    </AbsoluteLayout>
+    <!--<Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="8"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <HorizontalStackLayout Grid.Row="0">
+                <Label Text="PLACEHOLDER" />
+                <Button ImageSource="PLACEHOLDER"/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Grid.Row="1">
+                <Button/>
+                <Button/>
+                <Button/>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Grid.Row="2">
+                <Button Text="Practice Mode"/>
+                <Switch IsToggled="True"/>
+            </HorizontalStackLayout>
+        </Grid> -->
 </ContentPage>

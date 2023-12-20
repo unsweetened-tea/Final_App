@@ -45,5 +45,15 @@ namespace Final_App
         {
 
         }
+
+        public override void Heal()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void Attack(Character character)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

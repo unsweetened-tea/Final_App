@@ -7,6 +7,8 @@ public class Player : Character
 
 	internal List<Weapon> weapons;
 
+	public int baseDmg {  get; set; }
+
 	public double speed { get; set; }
 
 	public int healPotionsHeld { get; set; }
@@ -23,20 +25,20 @@ public class Player : Character
 		this.xPos += dis;
 	}
 
-	public override void Attack(Character character, int baseDmg)
+	public override void Attack(Character character)
 	{
 		if (character == null) return;
 		if (character == this) return;
 		character.HP -= baseDmg;
 	}
 
-    public override void Heal(int hp)
+    public override void Heal()
     {
         if (healPotionsHeld != 0) 
 		{
-			hp += 20;
-			if (hp > MAXHP)
-				hp = MAXHP;
+			HP += 20;
+			if (HP > MAXHP)
+				HP = MAXHP;
 			healPotionsHeld--;
 		}
     }

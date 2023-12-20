@@ -24,9 +24,9 @@ public abstract class Character
 		xPos = xpos;
 	}
 
-	public abstract void Attack(Character character, int baseDmg);
+	public abstract void Attack(Character character);
 	public abstract void Move(int x);
 
-	public abstract void Heal(int hp);
+	public abstract void Heal();
 
 }

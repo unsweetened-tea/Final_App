@@ -6,4 +6,16 @@ public partial class HomePage : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void start_Clicked(object sender, EventArgs e)
+    {
+        var page = new PlaceholderPlay();
+        Navigation.PushAsync(page);
+    }
+
+    private void practice_Clicked(object sender, EventArgs e)
+    {
+        var page = new PlaceholderPractice();
+        Navigation.PushAsync(page);
+    }
 }

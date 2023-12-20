@@ -2,11 +2,27 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Final_App.CustomizationPage"
-             Title="CustomizationPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="CustomizationPage"
+             NavigationPage.HasNavigationBar="True">
+    <AbsoluteLayout>
+        <Button 
+            x:Name="weapons"
+            Text="WEAPONS"
+            FontSize="60"
+            FontAttributes="Bold"
+            AbsoluteLayout.LayoutBounds="0, 1, 0.5, 1"
+            AbsoluteLayout.LayoutFlags="All"
+            Clicked="weapons_Clicked"
+             />
+
+        <Button 
+            x:Name="skins"
+            Text="SKINS"
+            FontSize="60"
+            FontAttributes="Bold"
+            AbsoluteLayout.LayoutBounds="1, 1, 0.5, 1"
+            AbsoluteLayout.LayoutFlags="All"
+            Clicked="skins_Clicked"
+             />
+    </AbsoluteLayout>
 </ContentPage>

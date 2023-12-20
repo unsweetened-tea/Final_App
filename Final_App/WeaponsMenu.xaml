@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Final_App.Settings"
-             Title="Settings"
+             x:Class="Final_App.WeaponsMenu"
+             Title="WeaponsMenu"
              NavigationPage.HasNavigationBar="True">
     <VerticalStackLayout>
-        <Label 
-            Text="Settings"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Image 
+            Source="C:\Users\leogo\source\repos\Final_App\Final_App\PlaceholderImages\Picture3.png" 
+            Aspect="AspectFill"
+            />
     </VerticalStackLayout>
 </ContentPage>
