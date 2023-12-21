@@ -1,5 +1,6 @@
 namespace Final_App;
-
+using Final_App;
+using Final_Project;
 public partial class CustomizationPage : ContentPage
 {
 	public CustomizationPage()
