@@ -1,7 +1,4 @@
-using System;
-
-
-namespace FinalProject;
+namespace Final_App;
 
 public partial class WeaponsMenu : ContentPage
 {
