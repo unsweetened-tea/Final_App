@@ -1,29 +1,32 @@
 using System;
-using System.Windows;
-using System.Windows.Controls;
 
 
 namespace FinalProject;
 
-public partial class WeaponSelection : ContentPage
+public partial class WeaponsMenu : ContentPage
 {
-	public WeaponSelection()
+	public WeaponsMenu()
 	{
 		InitializeComponent();
 	}
 
-    private void WeaponButton_Click(object sender, RoutedEventArgs e)
+    private async void GetResponse()
+    {
+        await DisplayAlert("Button clicked", "You clicked on a weapon!", "Ok");
+    }
+
+    private async void WeaponButton_Click(object sender, EventArgs e)
     {
         // Add logic for handling weapon button clicks here
         // For example:
         Button clickedButton = (Button)sender;
-        MessageBox.Show($"You clicked on {clickedButton.Name}!");
+        GetResponse();
     }
 
     // Event handler for Buy button click
-    private void BuyButton_Click(object sender, RoutedEventArgs e)
+    private async void BuyButton_Click(object sender, EventArgs e)
     {
         // Add logic for handling Buy button click here
-        MessageBox.Show("Buy button clicked!");
+        await DisplayAlert("Weapon bought", "You bought a weapon!", "Ok");
     }
 }
