@@ -27,15 +27,15 @@
                 </Grid.RowDefinitions>
 
                 <!-- Add your user icons here. For example: -->
-                <Image Grid.Column="0" Grid.Row="0" Source="UserIcon1.png" MouseLeftButtonUp="UserIcon_Click"/>
+                <!-- <Image Grid.Column="0" Grid.Row="0" Source="UserIcon1.png" MouseLeftButtonUp="UserIcon_Click"/> -->
                 <!-- Repeat for each icon, changing the Grid.Column and Grid.Row as needed -->
             </Grid>
 
             <!-- Selected Icon Display and Buy Button -->
-            <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal">
+            <!-- <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal">
                 <Image x:Name="SelectedIcon" Source="DefaultIcon.png" Height="100" Width="100"/>
                 <Button Text="Buy" Clicked="BuyButton_Click"/>
-            </StackPanel>
+            </StackPanel> -->
         </Grid>
     
     </VerticalStackLayout>
