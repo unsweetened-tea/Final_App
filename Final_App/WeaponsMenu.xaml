@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FinalProject.WeaponSelection"
-             Title="WeaponSelection">
+             x:Class="FinalProject.WeaponsMenu"
+             Title="WeaponsMenu">
 
 <Grid>
     <!-- Main grid divided into 5 rows -->
@@ -14,41 +14,31 @@
     <!-- Weapon selection grid -->
     <Grid Grid.Row="0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <!-- Weapon buttons or images -->
-        <Button Grid.Column="0" Grid.Row="0" Click="WeaponButton_Click">
-            <Image Source="weapon1.png"/>
-        </Button>
+        <Button x:Name="weapon1" ImageSource="weapon1.png" Grid.Column="0" Grid.Row="0" Clicked="WeaponButton_Click"/>
 
-        <Button Grid.Column="1" Grid.Row="0" Click="WeaponButton_Click">
-            <Image Source="weapon2.png"/>
-        </Button>
 
-        <Button Grid.Column="2" Grid.Row="0" Click="WeaponButton_Click">
-            <Image Source="weapon3.png"/>
-        </Button>
+        <Button x:Name="weapon2" ImageSource="weapon2.png" Grid.Column="1" Grid.Row="0" Clicked="WeaponButton_Click"/>
+            
 
-        <Button Grid.Column="0" Grid.Row="1" Click="WeaponButton_Click">
-            <Image Source="weapon4.png"/>
-        </Button>
+        <Button x:Name="weapon3" ImageSource="weapon3.png" Grid.Column="2" Grid.Row="0" Clicked="WeaponButton_Click"/>
 
-        <Button Grid.Column="1" Grid.Row="1" Click="WeaponButton_Click">
-            <Image Source="weapon5.png"/>
-        </Button>
+        <Button x:Name="weapon4" ImageSource="weapon4.png" Grid.Column="0" Grid.Row="1" Clicked="WeaponButton_Click"/>
 
-        <Button Grid.Column="2" Grid.Row="1" Click="WeaponButton_Click">
-            <Image Source="weapon6.png"/>
-        </Button>
+        <Button x:Name="weapon5" ImageSource="weapon5.png" Grid.Column="1" Grid.Row="1" Clicked="WeaponButton_Click"/>
+
+        <Button x:Name="weapon6" ImageSource="weapon6.png" Grid.Column="2" Grid.Row="1" Clicked="WeaponButton_Click"/>
 
         <!-- Add more buttons or images for other weapons as needed -->
     </Grid>
@@ -64,7 +54,7 @@
         <Image Grid.Column="0" x:Name="SelectedWeaponImage" Source="default.png"/>
 
         <!-- Buy button -->
-        <Button Grid.Column="1" Content="Buy" Click="BuyButton_Click"/>
+        <Button Grid.Column="1" Text="Buy" Clicked="BuyButton_Click"/>
     </Grid>
 </Grid>
 
