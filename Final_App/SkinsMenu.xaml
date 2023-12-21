@@ -4,11 +4,39 @@
              x:Class="Final_App.SkinsMenu"
              Title="SkinsMenu"
              NavigationPage.HasNavigationBar="True">
-    <VerticalStackLayout>
-        <Image 
-            Source="C:\Users\leogo\source\repos\Final_App\Final_App\PlaceholderImages\Picture4.png" 
-            Aspect="AspectFill"
-            />
+
+<Grid>
+    <!-- Main Grid -->
+    <Grid.RowDefinitions>
+        <RowDefinition Height="4*"/>
+        <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <!-- User Icons Grid -->
+    <Grid Grid.Row="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- Add your user icons here. For example: -->
+        <Image Grid.Column="0" Grid.Row="0" Source="UserIcon1.png" MouseLeftButtonUp="UserIcon_Click"/>
+        <!-- Repeat for each icon, changing the Grid.Column and Grid.Row as needed -->
+    </Grid>
+
+    <!-- Selected Icon Display and Buy Button -->
+    <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal">
+        <Image x:Name="SelectedIcon" Source="DefaultIcon.png" Height="100" Width="100"/>
+        <Button Content="Buy" Click="BuyButton_Click"/>
+    </StackPanel>
+</Grid>
     
     </VerticalStackLayout>
 </ContentPage>
