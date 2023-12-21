@@ -19,8 +19,21 @@ public partial class WeaponsMenu : ContentPage
     {
         // Add logic for handling weapon button clicks here
         // For example:
-        Button clickedButton = (Button)sender;
+        var clickedButton = sender as ImageButton;
         GetResponse();
+        var image = new Image()
+        {
+            Source = clickedButton.Source,
+            HorizontalOptions = LayoutOptions.Center,
+            VerticalOptions = LayoutOptions.Center,
+            BackgroundColor = Colors.Blue,
+        };
+        WeaponsGrid.Add(image, 0, 0);
+        WeaponsGrid.SetColumnSpan(image, 2);
+        WeaponsGrid.SetRowSpan(image, 2);
+        WeaponsGrid.BackgroundColor = Colors.Teal;
+        
+        
     }
 
     // Event handler for Buy button click

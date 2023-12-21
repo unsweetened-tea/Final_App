@@ -6,7 +6,7 @@
         {
             InitializeComponent();
 
-            var page = new NavigationPage(new MainPage())
+            var page = new NavigationPage(new HomePage())
             {
 
             };

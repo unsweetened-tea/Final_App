@@ -5,22 +5,39 @@
              Title="HomePage"
              NavigationPage.HasNavigationBar="True">
     <AbsoluteLayout>
-        <Button 
+        <Label Text="COINS: 100" FontSize="20" FontAttributes="Bold" AbsoluteLayout.LayoutBounds="0, 0, 0.3, 0.3" AbsoluteLayout.LayoutFlags="All"/>
+
+        <ImageButton
         x:Name="start"
-        Text="START"
-        FontSize="60"
-        FontAttributes="Bold"
-        AbsoluteLayout.LayoutBounds="0, 1, 0.5, 1"
+        Source="play_button"
+        AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.2, 0.25"
         AbsoluteLayout.LayoutFlags="All"
+        
         Clicked="start_Clicked"
+         />
+
+        <ImageButton
+        x:Name="weaponButton"
+        Source="weapon1.png"
+        AbsoluteLayout.LayoutBounds="0.3, 0.5, 0.2, 0.25"
+        AbsoluteLayout.LayoutFlags="All"
+        Clicked="weaponButton_Clicked"
+         />
+
+        <ImageButton
+        x:Name="skinsButton"
+        Source="dotnet_bot.svg"
+        AbsoluteLayout.LayoutBounds="0.7, 0.5, 0.2, 0.25"
+        AbsoluteLayout.LayoutFlags="All"
+        Clicked="skinsButton_Clicked"
          />
 
         <Button 
         x:Name="practice"
-        Text="PRACTICE"
-        FontSize="60"
+        Text="PRACTICE MODE"
+        FontSize="20"
         FontAttributes="Bold"
-        AbsoluteLayout.LayoutBounds="1, 1, 0.5, 1"
+        AbsoluteLayout.LayoutBounds="0.5, 1, 0.35, 0.15"
         AbsoluteLayout.LayoutFlags="All"
         Clicked="practice_Clicked"
          />
