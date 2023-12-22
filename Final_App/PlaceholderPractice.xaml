@@ -3,10 +3,37 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Final_App.PlaceholderPractice"
              Title="PlaceholderPractice">
-    <VerticalStackLayout>
-        <Image 
-             Source="C:\Users\leogo\source\repos\Final_App\Final_App\PlaceholderImages\Picture2.png" 
-             Aspect="AspectFill"
-             />
-    </VerticalStackLayout>
+    <AbsoluteLayout>
+        <Button
+        BorderColor="Black"
+        BackgroundColor="White"
+        AbsoluteLayout.LayoutBounds="0.5,0.5,0.75,0.5"
+        AbsoluteLayout.LayoutFlags="All"
+        CornerRadius="5">
+        </Button>
+        <Label
+        Text="Filler"
+        TextColor="Black"
+        AbsoluteLayout.LayoutBounds="0.5,0.5"
+        AbsoluteLayout.LayoutFlags="PositionProportional"
+        />
+        <HorizontalStackLayout AbsoluteLayout.LayoutBounds="0.6,0.4" AbsoluteLayout.LayoutFlags="PositionProportional">
+            <Button
+            BackgroundColor="Transparent"
+            BorderColor="Transparent"
+            Text="Correct"
+            TextColor="Black"
+            >
+
+            </Button>
+            <Button
+            BackgroundColor="Transparent"
+            BorderColor="Transparent"
+            Text="Incorrect"
+            TextColor="Black"
+            >
+            </Button>
+        </HorizontalStackLayout>
+        
+    </AbsoluteLayout>
 </ContentPage>
