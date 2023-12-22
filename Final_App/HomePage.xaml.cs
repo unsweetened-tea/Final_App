@@ -3,10 +3,12 @@ using System.Net.Sockets;
 namespace Final_App;
 public partial class HomePage : ContentPage
 {
-    public int selected = 0;
+    Label selected;
     public HomePage()
     {
         InitializeComponent();
+        selected = fam;
+        fam.TextColor = Colors.LightBlue;
     }
 
     private void start_Clicked(object sender, EventArgs e)
@@ -37,47 +39,37 @@ public partial class HomePage : ContentPage
         var button = sender as ImageButton;
         if (button == null)
             return;
-        else if(selected == 1)
+        var URL = button.Source.ToString().Substring(6);
+        if (URL.Equals("family.png"))
         {
-            fam.TextColor = Colors.White;
+            fam.TextColor = Colors.LightBlue;
+            selected.TextColor = Colors.Black;
+            selected = fam;
         }
-        else if (selected == 2)
+        else if (URL.Equals("food.png"))
         {
-            fod.TextColor = Colors.White;
+            fod.TextColor = Colors.LightBlue;
+            selected.TextColor = Colors.Black;
+            selected = fod;
         }
-        else if (selected == 3)
+        else if (URL.Equals("likedislike.png"))
         {
-            fav.TextColor = Colors.White;
+            fav.TextColor = Colors.LightBlue;
+            selected.TextColor = Colors.Black;
+            selected = fav;
+            
         }
-        else if (selected == 4)
+        else if (URL.Equals("travel.png"))
         {
-            trav.TextColor = Colors.White;
+            trav.TextColor = Colors.LightBlue;
+            selected.TextColor = Colors.Black;
+            selected = trav;
         }
-        else if (selected == 5)
+        else if (URL.Equals("basics.png"))
         {
-            gret.TextColor = Colors.White;
-        }
-
-        else if (button.Source.Equals("Family.png"))
-        {
-            fam.TextColor = Colors.Yellow;
-            selected = 1;
-        }
-        else if (button.Source.Equals("food.png"))
-        {
-            fod.TextColor = Colors.Yellow;
-        }
-        else if (button.Source.Equals("likedislike.png"))
-        {
-            fav.TextColor = Colors.Yellow;
-        }
-        else if (button.Source.Equals("travel.png"))
-        {
-            trav.TextColor = Colors.Yellow;
-        }
-        else if (button.Source.Equals("basics.png"))
-        {
-            gret.TextColor = Colors.Yellow;
+            gret.TextColor = Colors.LightBlue;
+            selected.TextColor = Colors.Black;
+            selected = gret;
         }
     }
 }

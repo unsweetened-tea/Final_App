@@ -64,6 +64,7 @@ public partial class WeaponsMenu : ContentPage
 
         };
         weaponsCollection.ItemsSource = weapons;
+        
 	}
 
     private async void GetResponse()

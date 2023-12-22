@@ -25,10 +25,13 @@
     </VerticalStackLayout>
 
 
-    <CollectionView x:Name="weaponsCollection" ItemsLayout="VerticalGrid, 3" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" Grid.Column="1">
+    <CollectionView ItemsSource="{Binding weapons}" x:Name="weaponsCollection" ItemsLayout="VerticalGrid, 3" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" Grid.Column="1" Grid.Row="0">
     <CollectionView.ItemTemplate>
         <DataTemplate>
-            <Image Source="{Binding ImageURL}"/>
+            <VerticalStackLayout>
+                 <Image Source="{Binding ImageURL}"/>
+            </VerticalStackLayout>
+           
         </DataTemplate>
     </CollectionView.ItemTemplate>
     </CollectionView>
