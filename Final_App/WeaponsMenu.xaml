@@ -11,10 +11,15 @@
         <RowDefinition Height="0.000001*"/>
     </Grid.RowDefinitions>
 
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="2*"/>
+    </Grid.ColumnDefinitions>
+
     <!-- Weapon selection grid -->
-    <Grid x:Name="WeaponsGrid" Grid.Row="0" Margin="40" RowSpacing="20" ColumnSpacing="20">
+    <!--<Grid x:Name="WeaponsGrid" Grid.Row="0" Margin="40" RowSpacing="20" ColumnSpacing="20">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -26,7 +31,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Weapon buttons or images -->
+         Weapon buttons or images 
         <ImageButton x:Name="weapon1" Source="weapon1.png" Grid.Column="1" Grid.Row="0" Clicked="WeaponButton_Click"/>
 
 
@@ -43,8 +48,10 @@
 
         <Button Grid.Column="0" Grid.Row="2" Text="Buy" Clicked="BuyButton_Click"/>
 
-        <!-- Add more buttons or images for other weapons as needed -->
-    </Grid>
+        <Button x:Name="useButton" Grid.Column="0" Grid.Row="3" Text="Use" Clicked="useButton_Clicked"/>
+
+         Add more buttons or images for other weapons as needed 
+    </Grid>-->
 
      <!--Detailed view 
     <Grid Grid.Row="1">

@@ -21,14 +21,14 @@ public partial class WeaponsMenu : ContentPage
         var image = new Image()
         {
             Source = clickedButton.Source,
-            HorizontalOptions = LayoutOptions.Center,
+            HorizontalOptions = LayoutOptions.Start,
             VerticalOptions = LayoutOptions.Center,
             BackgroundColor = Colors.Blue,
         };
-        WeaponsGrid.Add(image, 0, 0);
-        WeaponsGrid.SetColumnSpan(image, 2);
-        WeaponsGrid.SetRowSpan(image, 2);
-        WeaponsGrid.BackgroundColor = Colors.Teal;
+        //WeaponsGrid.Add(image, 0, 0);
+        //WeaponsGrid.SetColumnSpan(image, 2);
+        //WeaponsGrid.SetRowSpan(image, 2);
+        //WeaponsGrid.BackgroundColor = Colors.Teal;
         
         
     }
@@ -38,5 +38,10 @@ public partial class WeaponsMenu : ContentPage
     {
         // Add logic for handling Buy button click here
         await DisplayAlert("Weapon bought", "You bought a weapon!", "Ok");
+    }
+
+    void useButton_Clicked(System.Object sender, System.EventArgs e)
+    {
+
     }
 }
