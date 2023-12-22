@@ -96,6 +96,7 @@ public partial class WeaponsMenu : ContentPage
         var weapon = weaponsCollection.SelectedItem as Weapon;
         weapon.Bought = true;
         buyButton.IsEnabled = false;
+        useButton.IsEnabled = true;
     }
 
     async void useButton_Clicked(System.Object sender, System.EventArgs e)
@@ -118,12 +119,16 @@ public partial class WeaponsMenu : ContentPage
         selectedImage.Source = weapon.ImageURL;
         if (weapon.Bought)
         {
-            useButton.Text = "Equip";
+            if (!weaponsUsed.Contains(weapon)) useButton.Text = "Equip";
+            else useButton.Text = "Unequip";
+            useButton.IsEnabled = true;
+
             buyButton.IsEnabled = false;
         } else
         {
-            if (!weaponsUsed.Contains(weapon)) useButton.Text = "Equip";
-            else useButton.Text = "Unequip";
+            useButton.Text = "Equip";
+            useButton.IsEnabled = false;
+            buyButton.IsEnabled = true;
         }
         
 
