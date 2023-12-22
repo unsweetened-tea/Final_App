@@ -93,6 +93,9 @@ public partial class WeaponsMenu : ContentPage
     {
         // Add logic for handling Buy button click here
         await DisplayAlert("Weapon bought", "You bought a weapon!", "Ok");
+        var weapon = weaponsCollection.SelectedItem as Weapon;
+        weapon.Bought = true;
+        buyButton.IsEnabled = false;
     }
 
     async void useButton_Clicked(System.Object sender, System.EventArgs e)
@@ -113,8 +116,17 @@ public partial class WeaponsMenu : ContentPage
     {
         var weapon = weaponsCollection.SelectedItem as Weapon;
         selectedImage.Source = weapon.ImageURL;
-        if (!weaponsUsed.Contains(weapon)) useButton.Text = "Equip";
-        else useButton.Text = "Unequip";
+        if (weapon.Bought)
+        {
+            useButton.Text = "Equip";
+            buyButton.IsEnabled = false;
+        } else
+        {
+            if (!weaponsUsed.Contains(weapon)) useButton.Text = "Equip";
+            else useButton.Text = "Unequip";
+        }
+        
+
 
     }
 }
