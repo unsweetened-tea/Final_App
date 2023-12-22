@@ -16,6 +16,22 @@
         <ColumnDefinition Width="2*"/>
     </Grid.ColumnDefinitions>
 
+    <VerticalStackLayout Grid.Column="0">
+        <Image x:Name="selectedImage"/>
+        <Button Text="Buy" Clicked="BuyButton_Click"/>
+
+        <Button x:Name="useButton" Text="Equip" Clicked="useButton_Clicked"/>
+
+    </VerticalStackLayout>
+
+
+    <CollectionView x:Name="weaponsCollection" ItemsLayout="VerticalGrid, 3" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" Grid.Column="1">
+    <CollectionView.ItemTemplate>
+        <DataTemplate>
+            <Image Source="{Binding ImageURL}"/>
+        </DataTemplate>
+    </CollectionView.ItemTemplate>
+    </CollectionView>
     <!-- Weapon selection grid -->
     <!--<Grid x:Name="WeaponsGrid" Grid.Row="0" Margin="40" RowSpacing="20" ColumnSpacing="20">
         <Grid.ColumnDefinitions>
