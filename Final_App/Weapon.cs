@@ -8,8 +8,9 @@ namespace Final_App
 {
     internal class Weapon
     {
-        int Cost, Damage, Difficulty;
-        bool Bought;
-        String ImageURL;
+        public int Cost, Damage, Difficulty;
+        public bool Bought;
+        public String ImageURL;
+        public String Name;
     }
 }
