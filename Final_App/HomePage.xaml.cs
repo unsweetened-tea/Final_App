@@ -72,4 +72,5 @@ public partial class HomePage : ContentPage
             selected = gret;
         }
     }
+
 }
