@@ -13,7 +13,7 @@ public partial class HomePage : ContentPage
 
     private void start_Clicked(object sender, EventArgs e)
     {
-        var page = new PlaceholderPlay();
+        var page = new Play();
         Navigation.PushAsync(page);
     }
 

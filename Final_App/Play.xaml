@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Final_App.Play"
+             Title="Play">
+    <ContentPage.Resources>
+        <CornerRadius x:Key="CornerRadius55">5,5,5,5</CornerRadius>
+    </ContentPage.Resources>
+
+    <AbsoluteLayout>
+        <Label Text="COINS: 100" FontSize="20" FontAttributes="Bold" AbsoluteLayout.LayoutBounds="0, 0, 0.3, 0.3" AbsoluteLayout.LayoutFlags="All"/>
+
+        <Label
+            x:Name="prompt"
+            Text="BInding source here"
+            AbsoluteLayout.LayoutBounds="0.5, 0.6, 0.9, 50"
+            AbsoluteLayout.LayoutFlags="WidthProportional, PositionProportional"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            />
+
+        <Border
+            x:Name="prompt_border"
+            AbsoluteLayout.LayoutBounds="0.5, 0.6, 0.9, 60"
+            AbsoluteLayout.LayoutFlags="WidthProportional, PositionProportional" 
+            StrokeThickness="2"
+            />
+
+
+        <Border
+            x:Name="response_border"
+            AbsoluteLayout.LayoutBounds="0.5, 0.95, 0.9, 300"
+            AbsoluteLayout.LayoutFlags="WidthProportional, PositionProportional" 
+            StrokeThickness="2"
+            />
+    </AbsoluteLayout>
+</ContentPage>
