@@ -4,20 +4,40 @@
              x:Class="Final_App.PlaceholderPractice"
              Title="PlaceholderPractice">
     <AbsoluteLayout>
-        <Button
+        <Button x:Name="flashcard"
         BorderColor="Black"
+        BorderWidth="3"
         BackgroundColor="White"
-        AbsoluteLayout.LayoutBounds="0.5,0.5,0.75,0.5"
+        AbsoluteLayout.LayoutBounds="0.8,0.35,0.35,0.6"
         AbsoluteLayout.LayoutFlags="All"
-        CornerRadius="5">
-        </Button>
-        <Label
+        CornerRadius="5"
+        Clicked="flashcard_Clicked"
+        />
+        
+        <Label x:Name="cardText"
         Text="Filler"
         TextColor="Black"
-        AbsoluteLayout.LayoutBounds="0.5,0.5"
+        AbsoluteLayout.LayoutBounds="0.7,0.45"
         AbsoluteLayout.LayoutFlags="PositionProportional"
         />
-        <HorizontalStackLayout AbsoluteLayout.LayoutBounds="0.6,0.4" AbsoluteLayout.LayoutFlags="PositionProportional">
+
+        <ImageButton x:Name="rightButton"
+            Source="right_arrow.png"
+            AbsoluteLayout.LayoutBounds="0.75, 0.85, 30, 30"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            Clicked="rightButton_Clicked"
+            />
+
+        <ImageButton x:Name="leftButton"
+            Source="left_arrow.png"
+            AbsoluteLayout.LayoutBounds="0.65, 0.85, 30, 30"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            Clicked="leftButton_Clicked"
+            />
+
+
+
+        <!--<HorizontalStackLayout AbsoluteLayout.LayoutBounds="0.6,0.4" AbsoluteLayout.LayoutFlags="PositionProportional">
             <Button
             BackgroundColor="Transparent"
             BorderColor="Transparent"
@@ -33,7 +53,7 @@
             TextColor="Black"
             >
             </Button>
-        </HorizontalStackLayout>
+        </HorizontalStackLayout>-->
         
     </AbsoluteLayout>
 </ContentPage>
