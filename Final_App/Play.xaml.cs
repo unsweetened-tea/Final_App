@@ -1,3 +1,5 @@
+using Bumptech.Glide.Load.Resource.Gif;
+
 namespace Final_App;
 
 public partial class Play : ContentPage
@@ -7,6 +9,7 @@ public partial class Play : ContentPage
 	public Play()
 	{
 		InitializeComponent();
+        createWordbackGrid();
 	}
 
     public void difficultyToggle()
@@ -18,10 +21,7 @@ public partial class Play : ContentPage
 
     public void answersToggle()
     {
-        answer_1.IsVisible = !answer_1.IsVisible;
-        answer_2.IsVisible = !answer_2.IsVisible;
-        answer_3.IsVisible = !answer_3.IsVisible;
-        answer_4.IsVisible = !answer_4.IsVisible;
+        responses.IsVisible = !responses.IsVisible;
     }
 
     private void easy_Clicked(object sender, EventArgs e)
@@ -44,6 +44,8 @@ public partial class Play : ContentPage
         difficulty = "hard";
         answersToggle();
     }
+
+
 
     private void answer_1_Clicked(object sender, EventArgs e)
     {
@@ -91,6 +93,31 @@ public partial class Play : ContentPage
             difficultyToggle();
             answersToggle();
         }
+    }
+
+    public void createWordbackGrid()
+    {
+        Grid grid = new Grid
+        {
+            RowDefinitions =
+            {
+                new RowDefinition {Height = new GridLength(100)},
+                new RowDefinition {Height = new GridLength(100)}
+            },
+
+        };
+
+
+
+        for (int i = 0; i < 40; i++)
+        {
+            grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Star });
+        }
+    }
+
+    public void fillWordbank()
+    {
+
     }
 
 
