@@ -5,38 +5,36 @@
              Title="SkinsMenu"
              NavigationPage.HasNavigationBar="True">
     <VerticalStackLayout>
-        <Grid>
-            <!-- Main Grid -->
-            <Grid.RowDefinitions>
-                <RowDefinition Height="4*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+<Grid>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="4*"/>
+        <RowDefinition Height="0.000001*"/>
+    </Grid.RowDefinitions>
 
-            <!-- User Icons Grid -->
-            <Grid Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="2*"/>
+    </Grid.ColumnDefinitions>
 
-                <!-- Add your user icons here. For example: -->
-                <!-- <Image Grid.Column="0" Grid.Row="0" Source="UserIcon1.png" MouseLeftButtonUp="UserIcon_Click"/> -->
-                <!-- Repeat for each icon, changing the Grid.Column and Grid.Row as needed -->
-            </Grid>
+    <VerticalStackLayout Grid.Column="0">
+        <Image x:Name="selectedImage" HeightRequest="200"/>
+        <Button x:Name="buyButton" Text="Buy" Clicked="BuyButton_Click"/>
+        <Button x:Name="useButton" Text="Equip" Clicked="useButton_Clicked"/>
 
-            <!-- Selected Icon Display and Buy Button -->
-            <!-- <StackPanel Grid.Row="1" HorizontalAlignment="Center" Orientation="Horizontal">
-                <Image x:Name="SelectedIcon" Source="DefaultIcon.png" Height="100" Width="100"/>
-                <Button Text="Buy" Clicked="BuyButton_Click"/>
-            </StackPanel> -->
-        </Grid>
+    </VerticalStackLayout>
+
+
+    <CollectionView x:Name="skinsCollection" ItemsLayout="VerticalGrid, 3" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" Grid.Column="1" Grid.Row="0" WidthRequest="400">
+    <CollectionView.ItemTemplate>
+        <DataTemplate>
+            <VerticalStackLayout>
+                 <Image Source="{Binding ImageURL}"/>
+            </VerticalStackLayout>
+           
+        </DataTemplate>
+    </CollectionView.ItemTemplate>
+    </CollectionView>
+</Grid>
     
     </VerticalStackLayout>
 </ContentPage>
