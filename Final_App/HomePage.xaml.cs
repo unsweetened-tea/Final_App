@@ -19,7 +19,7 @@ public partial class HomePage : ContentPage
 
     private void practice_Clicked(object sender, EventArgs e)
     {
-        var page = new PlaceholderPractice();
+        var page = new PlaceholderPractice("family");
         Navigation.PushAsync(page);
     }
 

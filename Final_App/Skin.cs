@@ -8,9 +8,10 @@ namespace Final_App
 {
     internal class Skin
     {
-        int Cost;
-        String ImageURL;
-        bool Bought;
+        public string Name;
+        public int Cost;
+        public String ImageURL;
+        public bool Bought;
 
     }
 }

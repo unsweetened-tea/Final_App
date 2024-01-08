@@ -12,8 +12,19 @@
 
         <Label
             x:Name="prompt"
-            Text="BInding source here"
-            AbsoluteLayout.LayoutBounds="0.5, 0.6, 0.9, 80"
+            Text="test"
+            FontSize="20"
+            AbsoluteLayout.LayoutBounds="0.5, 0.55, 0.9, 80"
+            AbsoluteLayout.LayoutFlags="WidthProportional, PositionProportional"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            />
+
+        <Label
+            x:Name="answer"
+            Text="test"
+            FontSize="20"
+            AbsoluteLayout.LayoutBounds="0.5, 0.60, 0.9, 80"
             AbsoluteLayout.LayoutFlags="WidthProportional, PositionProportional"
             HorizontalOptions="Center"
             VerticalOptions="Center"
@@ -21,7 +32,7 @@
 
         <Border
             x:Name="prompt_border"
-            AbsoluteLayout.LayoutBounds="0.5, 0.6, 0.9, 80"
+            AbsoluteLayout.LayoutBounds="0.5, 0.6, 0.9, 150"
             AbsoluteLayout.LayoutFlags="WidthProportional, PositionProportional" 
             StrokeThickness="2"
             />
@@ -29,13 +40,13 @@
 
         <Border
             x:Name="response_border"
-            AbsoluteLayout.LayoutBounds="0.5, 0.95, 0.9, 200"
+            AbsoluteLayout.LayoutBounds="0.5, 0.95, 0.9, 250"
             AbsoluteLayout.LayoutFlags="WidthProportional, PositionProportional" 
             StrokeThickness="2"
             />
 
         <Grid
-            AbsoluteLayout.LayoutBounds="0.5, 0.95, 0.9, 200"
+            AbsoluteLayout.LayoutBounds="0.5, 0.95, 0.9, 250"
             AbsoluteLayout.LayoutFlags="WidthProportional, PositionProportional"
             x:Name="difficulty_choice"
             >

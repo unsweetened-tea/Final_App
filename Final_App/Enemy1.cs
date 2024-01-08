@@ -17,15 +17,9 @@ namespace Final_App
         public int Dmg { get; set; }
         public bool LongRange { get; set; }
         public Enemy1(int hp, int maxhp, int xpos, bool flying, bool wearingHat, int percenthealth, int dmg, bool longRange)
+        : base(hp, maxhp, xpos, flying, wearingHat, percenthealth, dmg, longRange)
         {
-            HP = hp;
-            MAXHP = maxhp;
-            xPos = xpos;
-            Flying = false;
-            WearingHat = false;
-            PercentHealth = percenthealth;
-            Dmg = dmg;
-            LongRange = longRange;
+            // constructor implementation for Enemy1
         }
         public override void Attack(Enemy enemy)
         {
