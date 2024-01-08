@@ -1,5 +1,6 @@
 using Microsoft.Maui.Layouts;
 using Microsoft.Maui.Controls;
+using Microsoft.Maui.Controls.Compatibility;
 
 
 namespace Final_App;
@@ -8,14 +9,16 @@ public partial class Play : ContentPage
 {
     public string difficulty = "";
     public int questionsRemaining = 3;
-    public Grid bank;
+    public string input = "";
+
 	public Play()
 	{
         
         InitializeComponent();
         createWordbankGrid();
-        fillWordbank();
-	}
+
+
+    }
 
     public void difficultyToggle()
     {
@@ -27,13 +30,14 @@ public partial class Play : ContentPage
     public void answersToggle()
     {
         //responses.IsVisible = !responses.IsVisible;
-        fillWordbank();
+        bank.IsVisible = !bank.IsVisible;
     }
 
     private void easy_Clicked(object sender, EventArgs e)
     {
         difficultyToggle();
         difficulty = "easy";
+        fillWordbank();
         answersToggle();
         
     }
@@ -42,6 +46,7 @@ public partial class Play : ContentPage
     {
         difficultyToggle();
         difficulty = "medium";
+        fillWordbank();
         answersToggle();
         
     }
@@ -50,6 +55,7 @@ public partial class Play : ContentPage
     {
         difficultyToggle();
         difficulty = "hard";
+        fillWordbank();
         answersToggle();
         
     }
@@ -106,87 +112,206 @@ public partial class Play : ContentPage
 
     public void createWordbankGrid()
     {
-        //var myGrid = new Grid();
+        bank.IsVisible = false;
 
-        //// Define rows and columns
-        //myGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
-        //myGrid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(2, GridUnitType.Star) });
-
-        //myGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-        //myGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) });
-
-        //var coloredBox = new BoxView
-        //{
-        //    Color = Colors.Red // Set your desired color
-        //};
-        //myGrid.Add(coloredBox, 0, 0); // Column 0, Row 0
-
-        //var anotherColoredBox = new BoxView
-        //{
-        //    Color = Colors.Blue // Set your desired color
-        //};
-        //myGrid.Add(anotherColoredBox, 1, 1); // Column 1, Row 1
-
-        //var myLabel = new Label
-        //{
-        //    Text = "Hello, MAUI!",
-        //    FontSize = 20
-        //};
-        //myGrid.Add(myLabel, 0, 1); // Column 0, Row 1, Spanning 2 rows
-
-        //// Add the Grid to the content of the page
-        //Content = myGrid;
-
-        bank = new Grid()
+        for(int x = 0; x < 2; x ++)
         {
-            RowDefinitions =
-            {
-                new RowDefinition { Height = new GridLength(100) },
-                new RowDefinition { Height = new GridLength(100) }
-            },
+            bank.AddRowDefinition(new RowDefinition());
+        }
 
-            
-        };
+        for (int y = 0; y < 10; y++)
+        {
+            bank.AddColumnDefinition(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star )}); ;
+        }
+
 
         for (int i = 0; i < 2; i++)
         {
-            bank.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+            for (int j = 0; j < 10; j++)
+            {
+                var button = new Button
+                {
+                    Text = "",
+                    BackgroundColor = Colors.Blue,
+                    FontSize = 20,
+                    MaximumHeightRequest = 100,
+                    MaximumWidthRequest = 150,
+                    TextColor = Colors.Black,
+                    Background = Colors.Transparent,
+                    BorderColor = Colors.Transparent,
+
+                };
+                button.Clicked += Button_Clicked;
+                bank.Add(button, j, i);
+            }
         }
 
-        AbsoluteLayout.SetLayoutBounds(bank, new Rect(0.5, 0.6, 0.9, 250));
-        AbsoluteLayout.SetLayoutFlags(bank, AbsoluteLayoutFlags.WidthProportional);
-        AbsoluteLayout.SetLayoutFlags(bank, AbsoluteLayoutFlags.PositionProportional);
+    }
 
-        
+    private async void Button_Clicked(object sender, EventArgs e)
+    {
+        string answer = "";
+        if (sender is Button button)
+        {
+            string buttonText = button.Text;
+            if (buttonText != "")
+            {
+                input = input + buttonText + " ";
+                response.Text = input;
+            }
 
-        bank.BackgroundColor = Colors.Purple;
 
-        Content = bank;
+            if (difficulty == "easy")
+            {
+                if (questionsRemaining == 3)
+                    answer = family_easy_1_spanish;
+                else if (questionsRemaining == 2)
+                    answer = family_easy_2_spanish;
+                else if (questionsRemaining == 1)
+                    answer = family_easy_3_spanish;
+            }
+            else if (difficulty == "medium")
+            {
+                if (questionsRemaining == 3)
+                    answer = family_medium_1_spanish;
+                else if (questionsRemaining == 2)
+                    answer = family_medium_2_spanish;
+                else if (questionsRemaining == 1)
+                    answer = family_medium_3_spanish;
+            }
+            else if (difficulty == "hard")
+            {
+                if (questionsRemaining == 3)
+                    answer = family_hard_1_spanish;
+                else if (questionsRemaining == 2)
+                    answer = family_hard_2_spanish;
+                else if (questionsRemaining == 1)
+                    answer = family_hard_3_spanish;
+            }
+        }
+
+        if (input.Equals(answer))
+        {
+            if (questionsRemaining > 0)
+            {
+                difficultyToggle();
+                answersToggle();
+            }
+
+            prompt.Text = "Next!";
+            response.Text = "";
+
+
+            for (int i = 0; i < bank.Children.Count; i++)
+            {
+                var x = bank.Children[i];
+                if (x is Button b)
+                {
+                    b.Text = "";
+                }
+            }
+
+            input = "";
+
+            questionsRemaining--;
+
+            if (questionsRemaining == 0)
+            {
+                prompt.Text = "among us?";
+                response.Text = "";
+                await DisplayAlert("Congrats!", "Return to the home page and try another category (totally done) or repeat this one!", "OK");
+                
+                await Navigation.PopAsync();
+
+            }
+        }
 
     }
 
     public void fillWordbank()
     {
-        string test = "This is a test string la la la la la la";
-        string[] words = test.Split(' ');
 
-
-        for (int i = 0;i < words.Length;i++) 
+        string text = "";
+        if (questionsRemaining == 3)
         {
-            //var button = new Button
-            //{
-            //    Text = words[i],
-            //    FontSize = 20,
-            //    HorizontalOptions = LayoutOptions.Center,
-            //    VerticalOptions = LayoutOptions.Center,
-            //    HeightRequest = 100,
-            //    WidthRequest = 100,
-            //};
-
-            bank.Add(new BoxView
+            if (difficulty == "easy")
             {
-                Color = Colors.Purple
-            }, 1, 1);
+                text = family_easy_1_spanish;
+                prompt.Text = family_easy_1_english;
+            }
+            else if (difficulty == "medium")
+            {
+                text = family_medium_1_spanish;
+                prompt.Text = family_medium_1_english;
+            }
+            else if (difficulty == "hard")
+            {
+                text = family_hard_1_spanish;
+                prompt.Text = family_hard_1_english;
+            }
+        }
+
+        else if (questionsRemaining == 2)
+        {
+            if (difficulty == "easy")
+            {
+                text = family_easy_2_spanish;
+                prompt.Text = family_easy_2_english;
+            }
+            else if (difficulty == "medium")
+            {
+                text = family_medium_2_spanish;
+                prompt.Text = family_medium_2_english;
+            }
+            else if (difficulty == "hard")
+            {
+                text = family_hard_2_spanish;
+                prompt.Text = family_hard_2_english;
+            }
+        }
+
+        else if (questionsRemaining == 1)
+        {
+            if (difficulty == "easy")
+            {
+                text = family_easy_3_spanish;
+                prompt.Text = family_easy_3_english;
+            }
+            else if (difficulty == "medium")
+            {
+                text = family_medium_3_spanish;
+                prompt.Text = family_medium_3_english;
+            }
+            else if (difficulty == "hard")
+            {
+                text = family_hard_3_spanish;
+                prompt.Text = family_hard_3_english;
+            }
+        }
+
+
+
+
+        string[] words = text.Split(' ');
+
+        Random random = new Random();
+        int n = words.Length;
+        for (int i = n - 1; i > 0; i--)
+        {
+            int j = random.Next(0, i + 1);
+            string temp = words[i];
+            words[i] = words[j];
+            words[j] = temp;
+        }
+
+
+        for (int i = 0; i < words.Length; i++)
+        {
+            var x = bank.Children[i];
+            if(x is Button button)
+            {
+                button.Text = words[i];
+            }
         }
 
 
@@ -194,17 +319,18 @@ public partial class Play : ContentPage
         
     }
 
-    private string family_easy_1_spanish = "Mi hermana";
-    private string family_easy_2_spanish = "Mi papá";
-    private string family_easy_3_spanish = "Mi abuela";
+    // add space at end of spanish sentences
+    private string family_easy_1_spanish = "Mi hermana ";
+    private string family_easy_2_spanish = "Mi papá ";
+    private string family_easy_3_spanish = "Mi abuela ";
 
-    private string family_medium_1_spanish = "Mi hermana es inteligente";
-    private string family_medium_2_spanish = "Mi papá es simpatico";
-    private string family_medium_3_spanish = "Mi abuela es bonita";
+    private string family_medium_1_spanish = "Mi hermana es inteligente ";
+    private string family_medium_2_spanish = "Mi papá es simpatico ";
+    private string family_medium_3_spanish = "Mi abuela es bonita ";
 
-    private string family_hard_1_spanish = "Mi hermana y yo jugamos juntas en la casa";
-    private string family_hard_2_spanish = "Mi papá me ayuda con la tarea";
-    private string family_hard_3_spanish = "Mi abuela cuenta cuentos antes de dormir";
+    private string family_hard_1_spanish = "Mi hermana y yo jugamos juntas en la casa ";
+    private string family_hard_2_spanish = "Mi papá me ayuda con la tarea ";
+    private string family_hard_3_spanish = "Mi abuela cuenta cuentos antes de dormir ";
 
 
     private string family_easy_1_english = "My sister";
@@ -220,16 +346,16 @@ public partial class Play : ContentPage
     private string family_hard_3_english = "My grandmother tells stories before bedtime";
 
 
-    private string food_easy_1_spanish = "La pizza";
-    private string food_easy_2_spanish = "La fruta";
-    private string food_easy_3_spanish = "El arroz";
+    private string food_easy_1_spanish = "La pizza ";
+    private string food_easy_2_spanish = "La fruta ";
+    private string food_easy_3_spanish = "El arroz ";
 
-    private string food_medium_1_spanish = "Me gusta pizza";
-    private string food_medium_2_spanish = "La fruta es fresca";
-    private string food_medium_3_spanish = "Me encanta el helado";
+    private string food_medium_1_spanish = "Me gusta pizza ";
+    private string food_medium_2_spanish = "La fruta es fresca ";
+    private string food_medium_3_spanish = "Me encanta el helado ";
 
-    private string food_hard_1_spanish = "Me gusta la pizza con queso y pepperoni";
-    private string food_hard_2_spanish = "La fruta es fresca y saludable para merendar";
-    private string food_hard_3_spanish = "El arroz con pollo es mi plato favorito";
+    private string food_hard_1_spanish = "Me gusta la pizza con queso y pepperoni ";
+    private string food_hard_2_spanish = "La fruta es fresca y saludable para merendar ";
+    private string food_hard_3_spanish = "El arroz con pollo es mi plato favorito ";
 
 }

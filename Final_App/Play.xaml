@@ -12,7 +12,7 @@
 
         <Label
             x:Name="prompt"
-            Text="test"
+            Text="Go!"
             FontSize="20"
             AbsoluteLayout.LayoutBounds="0.5, 0.55, 0.9, 80"
             AbsoluteLayout.LayoutFlags="WidthProportional, PositionProportional"
@@ -21,8 +21,8 @@
             />
 
         <Label
-            x:Name="answer"
-            Text="test"
+            x:Name="response"
+            Text=""
             FontSize="20"
             AbsoluteLayout.LayoutBounds="0.5, 0.60, 0.9, 80"
             AbsoluteLayout.LayoutFlags="WidthProportional, PositionProportional"
@@ -172,22 +172,19 @@
         </Grid>
 
         <Grid
-            AbsoluteLayout.LayoutBounds="0.5, 0.95, 0.9, 200"
-            AbsoluteLayout.LayoutFlags="WidthProportional, PositionProportional"
-            x:Name="wordbank"
+            AbsoluteLayout.LayoutBounds="0.5, 0.92, 0.9, 200"
+            AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+            x:Name="bank"
             IsVisible="False"
             >
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
+                
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
                 
             </Grid.ColumnDefinitions>
+
+            
 
         </Grid>
 
