@@ -8,24 +8,24 @@ namespace Final_App
 {
     internal class Enemy1 : Enemy
     {
-        public string ImageUrl { get; set; }
         public int HP { get; set; }
         public int MAXHP { get; set; }
         public int xPos { get; set; }
         public bool Flying { get; set; }
         public bool WearingHat { get; set; }
-        public int percentHealth { get; set; }
-        public int dmg { get; set; }
+        public int PercentHealth { get; set; }
+        public int Dmg { get; set; }
         public bool LongRange { get; set; }
-        public Enemy1(int hp, int maxhp, int xpos) : base(hp, maxhp, xpos)
+        public Enemy1(int hp, int maxhp, int xpos, bool flying, bool wearingHat, int percenthealth, int dmg, bool longRange)
         {
-            HP = 10;
-            MAXHP = 10;
+            HP = hp;
+            MAXHP = maxhp;
             xPos = xpos;
             Flying = false;
             WearingHat = false;
-            dmg = 1;
-            LongRange = false;
+            PercentHealth = percenthealth;
+            Dmg = dmg;
+            LongRange = longRange;
         }
         public override void Attack(Enemy enemy)
         {

@@ -1,35 +1,27 @@
 ﻿using Final_App;
 using System;
 
-public abstract class Enemy : Character
+public abstract class Enemy
 {
-    public int damage {  get; set; }
-    public double speed { get; set; }
+    public int hp { get; set; }
+    public int maxhp { get; set; }
+    public int xpos { get; set; }
+    public bool flying { get; set; }
+    public bool wearingHat { get; set; }
+    public int percentHealth { get; set; }
+    public int dmg { get; set; }
+    public bool longRange { get; set; }
 
-    public int coinsDropped { get; set; }
-
-    public Enemy(int hp, int maxhp, int xpos) : base(hp, maxhp, xpos)
+    public Enemy(int hp, int maxhp, int xpos, bool flying, bool wearingHat, int percentHealth, int dmg, bool longRange)
     {
 
     }
 
-    public override void Move(int dis)
-    {
-        // if '+=' then we need negative dis
-        this.xPos -= dis;
-    }
+    public abstract void Move(int xPos);
 
-    public override void Attack(Character character)
-    {
-        if (character == null) return;
-        if (character == this) return;
-        character.HP -= damage;
-    }
+    public abstract void Attack(Character character);
 
-    public override void Heal()
-    {
-        HP += 10;
-    }
+    public abstract void Heal();
 
     public abstract void Attack(Enemy enemy);
 
