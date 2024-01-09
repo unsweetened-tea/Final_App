@@ -3,9 +3,7 @@ using System.Collections.Generic;
 
 class FamilyData
 {
-    static void Main()
-    {
-        List<string> spanishListMedium = new List<string>
+    public static List<string> SpanishListMedium = new List<string>
         {
             "Mi prima, que vive en el extranjero, viene a visitarnos el próximo mes.",
             "Mis padres siempre nos enseñan sobre la importancia de familia.",
@@ -18,7 +16,7 @@ class FamilyData
             "La paciencia y el respeto son los valores fundamentales de mi hermano."
         };
 
-        List<string> englishListMedium = new List<string>
+    public static List<string> EnglishListMedium = new List<string>
         {
             "My cousin, who lives abroad, is coming to visit us next month.",
             "My parents always teach us about the importance of family.",
@@ -31,7 +29,7 @@ class FamilyData
             "Patience and respect are the core values of my brother."
         };
 
-         List<string> spanishListEasy = new List<string>
+     public static List<string> SpanishListEasy = new List<string>
         {
             "Mi familia es grande.",
             "Mi padre trabaja en una oficina.",
@@ -49,7 +47,7 @@ class FamilyData
             "Mi familia es el centro de mi vida."
         };
 
-        List<string> englishListEasy = new List<string>
+    public static List<string> EnglishListEasy = new List<string>
         {
             "My family is big.",
             "My dad works in an office.",
@@ -67,7 +65,7 @@ class FamilyData
             "My family is the center of my life."
         };
 
-         List<string> spanishListHard = new List<string>
+     public static List<string> SpanishListHard = new List<string>
         {
             "Mi familia, que está compuesta por mis padres, mis dos hermanos mayores, mi hermana menor y yo, ha cultivado a lo largo de los años una conexión profunda basada en el respeto mutuo y el apoyo incondicional, y aunque cada uno de nosotros tiene intereses y pasiones diferentes, encontramos un equilibrio armonioso que fortalece nuestra relación familiar.",
             "A medida que crecíamos juntos, enfrentamos desafíos que pusieron a prueba nuestra unidad, pero gracias a la paciencia, la empatía y la comprensión que caracterizan a nuestra familia, superamos obstáculos, aprendimos valiosas lecciones y emergimos más fuertes y más unidos que nunca.",
@@ -81,7 +79,7 @@ class FamilyData
             "La dinámica cambiante de la vida nos ha llevado a comprender que la verdadera riqueza de nuestra familia no se mide en posesiones materiales, sino en el tesoro invaluable de los momentos compartidos, las risas compartidas y el amor incondicional que fluye constantemente entre nosotros, creando un legado perdurable que trasciende el tiempo."
         };
 
-        List<string> englishListHard = new List<string>
+    public static List<string> EnglishListHard = new List<string>
         {
             "My family, composed of my parents, my two older brothers, my younger sister, and myself, has cultivated over the years a deep connection based on mutual respect and unconditional support, and although each of us has different interests and passions, we find a harmonious balance that strengthens our family bond.",
             "As we grew together, we faced challenges that tested our unity, but thanks to the patience, empathy, and understanding that characterize our family, we overcame obstacles, learned valuable lessons, and emerged stronger and more united than ever.",
@@ -94,6 +92,4 @@ class FamilyData
             "The deeply rooted roots of our family traditions, dating back to previous generations, not only connect us to our past but also act as solid pillars that sustain our collective identity, providing us with a grounded sense of belonging and purpose.",
             "The changing dynamics of life have led us to understand that the true wealth of our family is not measured in material possessions but in the invaluable treasure of shared moments, shared laughter, and the unconditional love that flows constantly among us, creating a lasting legacy that transcends time."
         };
-
-    }
 }

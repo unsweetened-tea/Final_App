@@ -1,5 +1,6 @@
 namespace Final_App;
 using System.IO;
+using FamilyData;
 
 public partial class PlaceholderPractice : ContentPage
 {
@@ -10,8 +11,8 @@ public partial class PlaceholderPractice : ContentPage
     int curIndex;
     bool englishRevealed;
     public PlaceholderPractice(string topic)
-	{
-		InitializeComponent();
+      {
+            InitializeComponent();
         InitializeSentences(topic);
         sentences = easy;
         curIndex = 0;
@@ -20,7 +21,7 @@ public partial class PlaceholderPractice : ContentPage
         //DisplayAlert("sentences", sentences.Count.ToString(), "ok");
         //updateFlashcard();
 
-	}
+      }
 
     void InitializeSentences(string topic)
     {
@@ -28,10 +29,10 @@ public partial class PlaceholderPractice : ContentPage
         switch (topic)
         {
             case "family":
-                
-                easy = readSentences("Resources/Raw/family_easy.txt");
-                medium = readSentences("Raw/family_medium.txt");
-                hard = readSentences("Final_App/Resources/Raw/family_hard.txt");
+               
+                easy = readSentences("family_easy");
+                medium = readSentences("family_medium");
+                hard = readSentences("family_hard");
                 break; // Add break to prevent fall-through
             case "greetings":
                 easy = readSentences("Resources/Sentences/greetings_easy.txt"); // Adjust the paths for greetings
@@ -103,34 +104,25 @@ public partial class PlaceholderPractice : ContentPage
         try
         {
             //Pass the file path and file name to the StreamReader constructor
-            StreamReader sr = new StreamReader(filename);
             //Read the first line of text
-
-            if (count % 2 == 0)
+            if (filename.Equals("family_easy"))
             {
-                spanish = sr.ReadLine();
-                DisplayAlert("sentences", "hi", "ok");
-            }
-            else
-                english = sr.ReadLine();
-            //Continue to read until you reach end of file
-            while (spanish != null)
+                spanish = FamilyData.SpanishListEasy;
+                english = FamilyData.EnglishListEasy;
+            } else if (filename.Equals("family_medium"))
             {
-                count++;
-                if (count % 2 == 0)
-                {
-
-                    spanish = sr.ReadLine();
-                }
-                else
-                {
-                    english = sr.ReadLine();
-                    translations.Add(spanish, english.Substring(1, english.Length - 2));
-                    
-                }
+                spanish = FamilyData.SpanishListMedium;
+                english = FamilyData.SpanishListMedium;
+            } else if (filename.Equals("family_hard"))
+            {
+                spanish = FamilyData.SpanishListHard;
+                english = FamilyData.SpanishListHard;
             }
-            //close the file
-            sr.Close();
+
+            for (int i = 0; i < spanish.Length; i++)
+            {
+                translations.Add(english[i], spanish[i]);
+            }
         }
         catch (Exception e)
         {
