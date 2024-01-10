@@ -1,6 +1,6 @@
 namespace Final_App;
 using System.IO;
-using FamilyData;
+using static FamilyData;
 
 public partial class PlaceholderPractice : ContentPage
 {
@@ -97,8 +97,8 @@ public partial class PlaceholderPractice : ContentPage
     }
 
     Dictionary<string, string> readSentences(string filename) {
-        String english = "";
-        var spanish = "";
+        List<string> english = new List<string>();
+        List<string> spanish = new List<string>();
         var count = 0;
         Dictionary<string, string> translations = new Dictionary<string, string>();
         try
@@ -107,19 +107,19 @@ public partial class PlaceholderPractice : ContentPage
             //Read the first line of text
             if (filename.Equals("family_easy"))
             {
-                spanish = FamilyData.SpanishListEasy;
-                english = FamilyData.EnglishListEasy;
+                spanish = SpanishListEasy;
+                english = EnglishListEasy;
             } else if (filename.Equals("family_medium"))
             {
-                spanish = FamilyData.SpanishListMedium;
-                english = FamilyData.SpanishListMedium;
+                spanish = SpanishListMedium;
+                english = SpanishListMedium;
             } else if (filename.Equals("family_hard"))
             {
-                spanish = FamilyData.SpanishListHard;
-                english = FamilyData.SpanishListHard;
+                spanish = SpanishListHard;
+                english = SpanishListHard;
             }
 
-            for (int i = 0; i < spanish.Length; i++)
+            for (int i = 0; i < spanish.Count; i++)
             {
                 translations.Add(english[i], spanish[i]);
             }
