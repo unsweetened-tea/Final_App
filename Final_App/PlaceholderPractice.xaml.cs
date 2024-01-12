@@ -17,9 +17,8 @@ public partial class PlaceholderPractice : ContentPage
         sentences = easy;
         curIndex = 0;
         englishRevealed = false;
-        Console.WriteLine(sentences.Count.ToString());
         //DisplayAlert("sentences", sentences.Count.ToString(), "ok");
-        //updateFlashcard();
+        updateFlashcard();
 
       }
 
@@ -130,5 +129,26 @@ public partial class PlaceholderPractice : ContentPage
             Console.WriteLine("Exception: " + e.Message);
         }
         return translations;
+    }
+
+    void difficultyButton_Clicked(System.Object sender, System.EventArgs e)
+    {
+        var button = sender as ImageButton;
+        if (button.Source == easyButton.Source)
+        {
+            sentences = easy;
+            curIndex = 0;
+            englishRevealed = false;
+        } else if (button.Source == mediumButton.Source)
+        {
+            sentences = medium;
+            curIndex = 0;
+            englishRevealed = false;
+        } else
+        {
+            sentences = hard;
+            curIndex = 0;
+            englishRevealed = false;
+        }
     }
 }
