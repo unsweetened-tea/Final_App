@@ -6,9 +6,12 @@ public partial class WeaponsMenu : ContentPage
 {
     ObservableCollection<Weapon> weapons;
     ObservableCollection<Weapon> weaponsUsed;
-	public WeaponsMenu()
-	{
-		InitializeComponent();
+    public event EventHandler<WeaponsArgs> NavigateAway;
+    int coinsLeft;
+    public WeaponsMenu(int coins)
+    {
+        coinsLeft = coins;
+        InitializeComponent();
         weapons = new ObservableCollection<Weapon>()
         {
             new Weapon()
@@ -64,8 +67,43 @@ public partial class WeaponsMenu : ContentPage
 
         };
         weaponsCollection.ItemsSource = weapons;
+        weaponsCollection.SelectedItem = weapons[0];
         
-	}
+        buyButton.IsEnabled = false;
+        useButton.Text = "Unequip";
+
+    }
+
+    public WeaponsMenu(int coins, ObservableCollection<Weapon> weapons)
+    {
+        coinsLeft = coins;
+        InitializeComponent();
+        this.weapons = weapons;
+        weaponsUsed = new ObservableCollection<Weapon>()
+        {
+
+        };
+        weaponsCollection.ItemsSource = weapons;
+        weaponsCollection.SelectedItem = weapons[0];
+
+        buyButton.IsEnabled = false;
+        useButton.Text = "Unequip";
+
+    }
+
+    public WeaponsMenu(int coins, ObservableCollection<Weapon> weapons, ObservableCollection<Weapon> weaponsUsed)
+    {
+        coinsLeft = coins;
+        InitializeComponent();
+        this.weapons = weapons;
+        this.weaponsUsed = weaponsUsed;
+        weaponsCollection.ItemsSource = weapons;
+        weaponsCollection.SelectedItem = weapons[0];
+
+        buyButton.IsEnabled = false;
+        useButton.Text = "Unequip";
+
+    }
 
     private async void GetResponse()
     {
@@ -85,7 +123,7 @@ public partial class WeaponsMenu : ContentPage
             VerticalOptions = LayoutOptions.Center,
             BackgroundColor = Colors.Blue,
         };
-        
+
     }
 
     // Event handler for Buy button click
@@ -97,6 +135,7 @@ public partial class WeaponsMenu : ContentPage
         weapon.Bought = true;
         buyButton.IsEnabled = false;
         useButton.IsEnabled = true;
+        coinsLeft -= weapon.Cost;
     }
 
     async void useButton_Clicked(System.Object sender, System.EventArgs e)
@@ -105,13 +144,15 @@ public partial class WeaponsMenu : ContentPage
         {
             useButton.Text = "Unequip";
             weaponsUsed.Add(weaponsCollection.SelectedItem as Weapon);
-        } else
+            if (weaponsUsed.Count >= 4) weaponsUsed.RemoveAt(0);
+        }
+        else
         {
             weaponsUsed.Remove(weaponsCollection.SelectedItem as Weapon);
             useButton.Text = "Equip";
         }
         Preferences.Default.Set("weaponsUsed", weaponsUsed);
-        
+
     }
 
     void CollectionView_SelectionChanged(System.Object sender, Microsoft.Maui.Controls.SelectionChangedEventArgs e)
@@ -125,14 +166,19 @@ public partial class WeaponsMenu : ContentPage
             useButton.IsEnabled = true;
 
             buyButton.IsEnabled = false;
-        } else
+        }
+        else
         {
             useButton.Text = "Equip";
             useButton.IsEnabled = false;
             buyButton.IsEnabled = true;
         }
-        
 
+    }
 
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+        NavigateAway?.Invoke(this, new WeaponsArgs() { coins = this.coinsLeft, weaponsUsed = this.weaponsUsed, weapons = this.weapons });
     }
 }

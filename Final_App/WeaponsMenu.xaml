@@ -4,7 +4,7 @@
              x:Class="Final_App.WeaponsMenu"
              Title="WeaponsMenu">
 
-<Grid>
+<Grid BackgroundColor="SkyBlue">
     <!-- Main grid divided into 5 rows -->
     <Grid.RowDefinitions>
         <RowDefinition Height="4*"/>

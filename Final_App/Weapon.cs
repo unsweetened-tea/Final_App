@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Final_App
 {
-    internal class Weapon
+    public class Weapon
     {
         public int Cost, Damage, Difficulty;
         public bool Bought;

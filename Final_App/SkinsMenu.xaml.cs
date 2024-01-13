@@ -5,9 +5,13 @@ namespace Final_App;
 public partial class SkinsMenu : ContentPage
 {
     ObservableCollection<Skin> skins;
-    ObservableCollection<Skin> skinsUsed;
-    public SkinsMenu()
+    Skin skin;
+    int coinsLeft;
+    public event EventHandler<SkinsArgs> NavigateAway;
+
+    public SkinsMenu(int coins)
     {
+        coinsLeft = coins;
         InitializeComponent();
         skins = new ObservableCollection<Skin>()
         {
@@ -15,7 +19,8 @@ public partial class SkinsMenu : ContentPage
             {
                 Name = "Boy",
                 ImageURL = "boy.png",
-                Cost = 200,
+                Cost = 0,
+                Bought = true,
             },
             new Skin()
             {
@@ -48,12 +53,35 @@ public partial class SkinsMenu : ContentPage
                 Cost = 100
             }
         };
-        skinsUsed = new ObservableCollection<Skin>()
-        {
-
-        };
         skinsCollection.ItemsSource = skins;
         skinsCollection.SelectedItem = skins[0];
+        skin = skins[0];
+        buyButton.IsEnabled = false;
+        useButton.Text = "Unequip";
+    }
+
+    public SkinsMenu(int coins, ObservableCollection<Skin> skins)
+    {
+        coinsLeft = coins;
+        InitializeComponent();
+        this.skins = skins;
+        skinsCollection.ItemsSource = skins;
+        skinsCollection.SelectedItem = skins[0];
+        skin = skins[0];
+        buyButton.IsEnabled = false;
+        useButton.Text = "Unequip";
+    }
+
+    public SkinsMenu(int coins, ObservableCollection<Skin> skins, Skin skinUsed)
+    {
+        coinsLeft = coins;
+        InitializeComponent();
+        this.skins = skins;
+        skinsCollection.ItemsSource = skins;
+        skinsCollection.SelectedItem = skinUsed;
+        skin = skinUsed;
+        buyButton.IsEnabled = false;
+        useButton.Text = "Unequip";
     }
 
     private async void GetResponse()
@@ -86,6 +114,7 @@ public partial class SkinsMenu : ContentPage
         skin.Bought = true;
         buyButton.IsEnabled = false;
         useButton.IsEnabled = true;
+        coinsLeft -= skin.Cost;
     }
 
     async void useButton_Clicked(System.Object sender, System.EventArgs e)
@@ -93,15 +122,13 @@ public partial class SkinsMenu : ContentPage
         if (useButton.Text == "Equip")
         {
             useButton.Text = "Unequip";
-            skinsUsed.Add(skinsCollection.SelectedItem as Skin);
+            skin = skinsCollection.SelectedItem as Skin;
         }
         else
         {
-            skinsUsed.Remove(skinsCollection.SelectedItem as Skin);
+            skin = skinsCollection.SelectedItem as Skin;
             useButton.Text = "Equip";
         }
-        
-        Preferences.Default.Set("skinsUsed", skinsUsed);
 
     }
 
@@ -111,20 +138,24 @@ public partial class SkinsMenu : ContentPage
         selectedImage.Source = skin.ImageURL;
         if (skin.Bought)
         {
-            if (!skinsUsed.Contains(skin)) useButton.Text = "Equip";
-            else useButton.Text = "Unequip";
+            if (this.skin == skin) useButton.Text = "Unequip";
+            else useButton.Text = "Equip";
             useButton.IsEnabled = true;
-
             buyButton.IsEnabled = false;
         }
         else
         {
             useButton.Text = "Equip";
             useButton.IsEnabled = false;
-            buyButton.IsEnabled = true;
+            if (skin.Cost > coinsLeft) buyButton.IsEnabled = false;
+            else buyButton.IsEnabled = true;
         }
 
+    }
 
-
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+        NavigateAway?.Invoke(this, new SkinsArgs() { coins = this.coinsLeft, skinUsed = skin, skins = this.skins });
     }
 }
