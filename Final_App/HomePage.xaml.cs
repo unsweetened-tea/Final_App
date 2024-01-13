@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Net.Sockets;
 
 namespace Final_App;
@@ -9,6 +11,9 @@ public partial class HomePage : ContentPage
         InitializeComponent();
         selected = fam;
         fam.TextColor = Colors.LightBlue;
+        Preferences.Default.Set("skinsUsed", new ObservableCollection<Skin>());
+        Preferences.Default.Set("weaponsUsed", new ObservableCollection<Weapon>());
+
     }
 
     private void start_Clicked(object sender, EventArgs e)

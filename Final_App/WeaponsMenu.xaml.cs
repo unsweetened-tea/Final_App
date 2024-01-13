@@ -110,6 +110,7 @@ public partial class WeaponsMenu : ContentPage
             weaponsUsed.Remove(weaponsCollection.SelectedItem as Weapon);
             useButton.Text = "Equip";
         }
+        Preferences.Default.Set("weaponsUsed", weaponsUsed);
         
     }
 

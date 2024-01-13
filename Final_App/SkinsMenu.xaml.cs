@@ -100,6 +100,8 @@ public partial class SkinsMenu : ContentPage
             skinsUsed.Remove(skinsCollection.SelectedItem as Skin);
             useButton.Text = "Equip";
         }
+        
+        Preferences.Default.Set("skinsUsed", skinsUsed);
 
     }
 
