@@ -336,43 +336,4 @@ public partial class Play : ContentPage
         
     }
 
-    // add space at end of spanish sentences
-    private string family_easy_1_spanish = "Mi hermana ";
-    private string family_easy_2_spanish = "Mi papá ";
-    private string family_easy_3_spanish = "Mi abuela ";
-
-    private string family_medium_1_spanish = "Mi hermana es inteligente ";
-    private string family_medium_2_spanish = "Mi papá es simpatico ";
-    private string family_medium_3_spanish = "Mi abuela es bonita ";
-
-    private string family_hard_1_spanish = "Mi hermana y yo jugamos juntas en la casa ";
-    private string family_hard_2_spanish = "Mi papá me ayuda con la tarea ";
-    private string family_hard_3_spanish = "Mi abuela cuenta cuentos antes de dormir ";
-
-
-    private string family_easy_1_english = "My sister";
-    private string family_easy_2_english = "My dad";
-    private string family_easy_3_english = "My grandma";
-
-    private string family_medium_1_english = "My sister is smart";
-    private string family_medium_2_english = "My dad is nice";
-    private string family_medium_3_english = "My grandma is pretty";
-
-    private string family_hard_1_english = "My sister and I play together at home";
-    private string family_hard_2_english = "My dad helps me with homework";
-    private string family_hard_3_english = "My grandmother tells stories before bedtime";
-
-
-    private string food_easy_1_spanish = "La pizza ";
-    private string food_easy_2_spanish = "La fruta ";
-    private string food_easy_3_spanish = "El arroz ";
-
-    private string food_medium_1_spanish = "Me gusta pizza ";
-    private string food_medium_2_spanish = "La fruta es fresca ";
-    private string food_medium_3_spanish = "Me encanta el helado ";
-
-    private string food_hard_1_spanish = "Me gusta la pizza con queso y pepperoni ";
-    private string food_hard_2_spanish = "La fruta es fresca y saludable para merendar ";
-    private string food_hard_3_spanish = "El arroz con pollo es mi plato favorito ";
-
 }
