@@ -10,7 +10,7 @@ namespace Final_App
     {
         public int Cost, Damage, Difficulty;
         public bool Bought;
-        public String ImageURL;
+        public String ImageURL { get; set; }
         public String Name;
     }
 }
