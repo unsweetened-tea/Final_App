@@ -4,7 +4,11 @@ My sister
 Mi papá 
 My dad 
 Mi abuela 
-My grandma 
+My grandma
+Tu mamá 
+Your mom
+Su hermano 
+His brother
 MEDBREAK
 Mi hermana es inteligente 
 My sister is smart

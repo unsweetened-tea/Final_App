@@ -10,10 +10,10 @@ namespace Final_App
 {
     internal class Question
     {
-        private string category {  get; set; }
-        private string difficulty {  get; set; }
-        private string spanish { get; set; }
-        private string english { get; set; }
+        public string category {  get; set; }
+        public string difficulty {  get; set; }
+        public string spanish { get; set; }
+        public string english { get; set; }
         public Question(string category, string difficulty, 
             string spanish, string english) 
         { 
@@ -21,6 +21,11 @@ namespace Final_App
             this.difficulty = difficulty;
             this.spanish = spanish;
             this.english = english;
+        }
+
+        public Question()
+        {
+
         }
 
         public override string ToString() 
