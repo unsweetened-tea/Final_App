@@ -28,7 +28,9 @@
     <CollectionView.ItemTemplate>
         <DataTemplate>
             <VerticalStackLayout>
-                 <Image Source="{Binding ImageURL}"/>
+                 <Image Source="{Binding ImageURL}" MaximumHeightRequest="130"
+                        Aspect="AspectFit"
+                        />
             </VerticalStackLayout>
            
         </DataTemplate>

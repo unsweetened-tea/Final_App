@@ -53,7 +53,7 @@ public partial class SkinsMenu : ContentPage
 
         };
         skinsCollection.ItemsSource = skins;
-
+        skinsCollection.SelectedItem = skins[0];
     }
 
     private async void GetResponse()
@@ -81,9 +81,9 @@ public partial class SkinsMenu : ContentPage
     private async void BuyButton_Click(object sender, EventArgs e)
     {
         // Add logic for handling Buy button click here
-        await DisplayAlert("Weapon bought", "You bought a skin!", "Ok");
-        var weapon = skinsCollection.SelectedItem as Weapon;
-        weapon.Bought = true;
+        await DisplayAlert("Skin bought", "You bought a skin!", "Ok");
+        var skin = skinsCollection.SelectedItem as Skin;
+        skin.Bought = true;
         buyButton.IsEnabled = false;
         useButton.IsEnabled = true;
     }

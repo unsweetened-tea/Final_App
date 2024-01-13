@@ -31,8 +31,8 @@ public partial class HomePage : ContentPage
 
     void skinsButton_Clicked(System.Object sender, System.EventArgs e)
     {
-        //var page = new SkinsMenu();
-        //Navigation.PushAsync(page)
+        var page = new SkinsMenu();
+        Navigation.PushAsync(page);
     }
     void Level_Clicked(System.Object sender, System.EventArgs e)
     {

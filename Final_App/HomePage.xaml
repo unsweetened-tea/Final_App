@@ -29,7 +29,7 @@
 
         <ImageButton
         x:Name="start"
-        Source="C:\Users\leogo\source\repos\Final_App\Final_App\Resources\Images\play_button.png"
+        Source="play_button.png"
         AbsoluteLayout.LayoutBounds="0.5, 0.5, .15, .20"
         AbsoluteLayout.LayoutFlags="All"
         
@@ -46,7 +46,7 @@
 
         <ImageButton
         x:Name="skinsButton"
-        Source="dotnet_bot.svg"
+        Source="boy.png"
         AbsoluteLayout.LayoutBounds="0.8, 0.5, 0.2, 0.25"
         AbsoluteLayout.LayoutFlags="All"
         Clicked="skinsButton_Clicked"
