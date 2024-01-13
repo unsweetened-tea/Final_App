@@ -11,8 +11,8 @@
 
         private void customize_Clicked(object sender, EventArgs e)
         {
-            var page = new CustomizationPage();
-            Navigation.PushAsync(page);
+            // var page = new CustomizationPage();
+            // Navigation.PushAsync(page);
         }
 
         private void play_Clicked(object sender, EventArgs e)
