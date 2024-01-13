@@ -22,5 +22,10 @@ namespace Final_App
             this.spanish = spanish;
             this.english = english;
         }
+
+        public override string ToString() 
+        {
+            return $"{category} {difficulty} {spanish} {english}";
+        }
     }
 }

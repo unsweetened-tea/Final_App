@@ -1,0 +1,21 @@
+EASYBREAK
+Mi hermana 
+My sister 
+Mi papá 
+My dad 
+Mi abuela 
+My grandma 
+MEDBREAK
+Mi hermana es inteligente 
+My sister is smart
+Mi papá es simpatico 
+My dad is nice
+Mi abuela es bonita 
+My grandma is pretty
+HARDBREAK
+Mi hermana y yo jugamos juntas en la casa 
+My sister and I play together at home
+Mi papá me ayuda con la tarea 
+My dad helps me with homework
+Mi abuela cuenta cuentos antes de dormir 
+My grandmother tells stories before bedtime
