@@ -8,7 +8,7 @@
         BorderColor="Black"
         BorderWidth="3"
         BackgroundColor="White"
-        AbsoluteLayout.LayoutBounds="0.8,0.35,0.35,0.6"
+        AbsoluteLayout.LayoutBounds="0.81,0.35,0.4,0.6"
         AbsoluteLayout.LayoutFlags="All"
         CornerRadius="5"
         Clicked="flashcard_Clicked"
@@ -17,8 +17,8 @@
         <Label x:Name="cardText"
         Text="Filler"
         TextColor="Black"
-        AbsoluteLayout.LayoutBounds="0.7,0.45"
-        AbsoluteLayout.LayoutFlags="PositionProportional"
+        AbsoluteLayout.LayoutBounds="0.8,0.45, 0.37, 0.6"
+        AbsoluteLayout.LayoutFlags="All"
         />
 
         <ImageButton x:Name="rightButton"
@@ -34,22 +34,31 @@
             AbsoluteLayout.LayoutFlags="PositionProportional"
             Clicked="leftButton_Clicked"
             />
+        <!--TODO: make this display current dificulty-->
+        <Label x:Name="difficultyLabel"
+            Text="Difficulty" 
+            FontAttributes="Bold"
+            TextColor="Black"
+            FontSize="30"
+            AbsoluteLayout.LayoutBounds="0.12, 0.05"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            />
 
         <ImageButton x:Name="easyButton"
             Source="easy_button.png"
-            AbsoluteLayout.LayoutBounds="0.3, 0.3, 50, 50"
+            AbsoluteLayout.LayoutBounds="0.15, 0.25, 50, 50"
             AbsoluteLayout.LayoutFlags="PositionProportional"
             Clicked="difficultyButton_Clicked"
             />
         <ImageButton x:Name="mediumButton"
             Source="medium_button.png"
-            AbsoluteLayout.LayoutBounds="0.3, 0.5, 50, 50"
+            AbsoluteLayout.LayoutBounds="0.15, 0.5, 50, 50"
             AbsoluteLayout.LayoutFlags="PositionProportional"
             Clicked="difficultyButton_Clicked"
             />
         <ImageButton x:Name="hardButton"
             Source="hard_button.png"
-            AbsoluteLayout.LayoutBounds="0.3, 0.7, 50, 50"
+            AbsoluteLayout.LayoutBounds="0.15, 0.75, 50, 50"
             AbsoluteLayout.LayoutFlags="PositionProportional"
             Clicked="difficultyButton_Clicked"
             />

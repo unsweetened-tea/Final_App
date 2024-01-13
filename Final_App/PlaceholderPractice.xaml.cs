@@ -78,21 +78,20 @@ public partial class PlaceholderPractice : ContentPage
     void flashcard_Clicked(System.Object sender, System.EventArgs e)
     {
         if (englishRevealed) {
-            cardText.Text = sentences.ElementAt(curIndex).Key;
             englishRevealed = false;
         } else
         {
-            cardText.Text = sentences.ElementAt(curIndex).Value;
             englishRevealed = true;
         }
+        updateFlashcard();
     }
 
     void updateFlashcard()
     {
         if (englishRevealed)
-            cardText.Text = sentences.ElementAt(curIndex).Value;
-        else
             cardText.Text = sentences.ElementAt(curIndex).Key;
+        else
+            cardText.Text = sentences.ElementAt(curIndex).Value;
     }
 
     Dictionary<string, string> readSentences(string filename) {
@@ -111,11 +110,11 @@ public partial class PlaceholderPractice : ContentPage
             } else if (filename.Equals("family_medium"))
             {
                 spanish = SpanishListMedium;
-                english = SpanishListMedium;
+                english = EnglishListMedium;
             } else if (filename.Equals("family_hard"))
             {
                 spanish = SpanishListHard;
-                english = SpanishListHard;
+                english = EnglishListHard;
             }
 
             for (int i = 0; i < spanish.Count; i++)
@@ -150,5 +149,8 @@ public partial class PlaceholderPractice : ContentPage
             curIndex = 0;
             englishRevealed = false;
         }
+        leftButton.IsEnabled = false;
+        rightButton.IsEnabled = true;
+        updateFlashcard();
     }
 }
