@@ -57,7 +57,8 @@ public partial class SkinsMenu : ContentPage
         skinsCollection.SelectedItem = skins[0];
         skin = skins[0];
         buyButton.IsEnabled = false;
-        useButton.Text = "Unequip";
+        useButton.IsEnabled = false;
+        coinLabel.Text = "Coins: " + coinsLeft.ToString();
     }
 
     public SkinsMenu(int coins, ObservableCollection<Skin> skins)
@@ -69,7 +70,8 @@ public partial class SkinsMenu : ContentPage
         skinsCollection.SelectedItem = skins[0];
         skin = skins[0];
         buyButton.IsEnabled = false;
-        useButton.Text = "Unequip";
+        useButton.IsEnabled = false;
+        coinLabel.Text = "Coins: " + coinsLeft.ToString();
     }
 
     public SkinsMenu(int coins, ObservableCollection<Skin> skins, Skin skinUsed)
@@ -81,7 +83,8 @@ public partial class SkinsMenu : ContentPage
         skinsCollection.SelectedItem = skinUsed;
         skin = skinUsed;
         buyButton.IsEnabled = false;
-        useButton.Text = "Unequip";
+        useButton.IsEnabled = false;
+        coinLabel.Text = "Coins: " + coinsLeft.ToString();
     }
 
     private async void GetResponse()
@@ -115,32 +118,27 @@ public partial class SkinsMenu : ContentPage
         buyButton.IsEnabled = false;
         useButton.IsEnabled = true;
         coinsLeft -= skin.Cost;
+        coinLabel.Text = "Coins: " + coinsLeft.ToString();
     }
 
     async void useButton_Clicked(System.Object sender, System.EventArgs e)
     {
         if (useButton.Text == "Equip")
         {
-            useButton.Text = "Unequip";
+            useButton.IsEnabled = false;
             skin = skinsCollection.SelectedItem as Skin;
         }
-        else
-        {
-            skin = skinsCollection.SelectedItem as Skin;
-            useButton.Text = "Equip";
-        }
-
     }
 
     void CollectionView_SelectionChanged(System.Object sender, Microsoft.Maui.Controls.SelectionChangedEventArgs e)
     {
         var skin = skinsCollection.SelectedItem as Skin;
         selectedImage.Source = skin.ImageURL;
+        skinData.Text = "Name: " + skin.Name + "\nCost: " + skin.Cost;
         if (skin.Bought)
         {
-            if (this.skin == skin) useButton.Text = "Unequip";
-            else useButton.Text = "Equip";
-            useButton.IsEnabled = true;
+            if (this.skin == skin) useButton.IsEnabled = false;
+            else useButton.IsEnabled = true;
             buyButton.IsEnabled = false;
         }
         else

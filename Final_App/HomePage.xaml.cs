@@ -33,6 +33,7 @@ public partial class HomePage : ContentPage
         selected = fam;
         fam.TextColor = Colors.LightBlue;
         coins = 10000;
+        coinLabel.Text = "Coins: " + coins.ToString();
         skins = new ObservableCollection<Skin>()
         {
             new Skin()
@@ -136,6 +137,7 @@ public partial class HomePage : ContentPage
     {
         var page = new PlaceholderPractice("family");
         Navigation.PushAsync(page);
+        coinLabel.Text = "Coins: " + coins.ToString();
     }
 
     void weaponButton_Clicked(System.Object sender, System.EventArgs e)
@@ -143,6 +145,7 @@ public partial class HomePage : ContentPage
         var page = new WeaponsMenu(coins, weapons);
         page.NavigateAway += onWeaponNavigatAway;
         Navigation.PushAsync(page);
+        coinLabel.Text = "Coins: " + coins.ToString();
     }
 
     void skinsButton_Clicked(System.Object sender, System.EventArgs e)
@@ -195,6 +198,7 @@ public partial class HomePage : ContentPage
         coins = e.coins;
         weaponsUsed = e.weaponsUsed;
         weapons = e.weapons;
+        coinLabel.Text = "Coins: " + coins.ToString();
     }
 
     void onSkinNavigatAway(object sender, SkinsArgs e)
@@ -202,6 +206,7 @@ public partial class HomePage : ContentPage
         coins = e.coins;
         curSkin = e.skinUsed;
         skins = e.skins;
+        coinLabel.Text = "Coins: " + coins.ToString();
     }
 
 }

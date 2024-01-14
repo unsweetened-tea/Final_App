@@ -5,7 +5,7 @@
              Title="HomePage"
              NavigationPage.HasNavigationBar="True">
     <AbsoluteLayout>
-        <Label Text="COINS: 100" FontSize="20" FontAttributes="Bold" AbsoluteLayout.LayoutBounds="0, 0, 0.3, 0.3" AbsoluteLayout.LayoutFlags="All"/>
+        <Label x:Name="coinLabel" Text="COINS: 100" FontSize="20" FontAttributes="Bold" AbsoluteLayout.LayoutBounds="0, 0, 0.3, 0.3" AbsoluteLayout.LayoutFlags="All"/>
 
         <Label x:Name="fam" Text="Family" AbsoluteLayout.LayoutBounds="0.23, 0, 0.1, 0.05" AbsoluteLayout.LayoutFlags="All" FontSize="12" FontAttributes="Bold" TextColor="Black"/>
 

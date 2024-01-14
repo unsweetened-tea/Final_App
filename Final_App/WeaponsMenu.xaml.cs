@@ -51,7 +51,8 @@ public partial class WeaponsMenu : ContentPage
                 Name = "Squirt",
                 ImageURL = "weapon5.png",
                 Damage = 1,
-                Cost = 10
+                Cost = 10,
+                Difficulty = 0
             },
             new Weapon()
             {
@@ -71,7 +72,7 @@ public partial class WeaponsMenu : ContentPage
         
         buyButton.IsEnabled = false;
         useButton.Text = "Unequip";
-
+        coinLabel.Text = "Coins: " + coins.ToString();
     }
 
     public WeaponsMenu(int coins, ObservableCollection<Weapon> weapons)
@@ -88,6 +89,7 @@ public partial class WeaponsMenu : ContentPage
 
         buyButton.IsEnabled = false;
         useButton.Text = "Unequip";
+        coinLabel.Text = "Coins: " + coinsLeft.ToString();
 
     }
 
@@ -102,7 +104,7 @@ public partial class WeaponsMenu : ContentPage
 
         buyButton.IsEnabled = false;
         useButton.Text = "Unequip";
-
+        coinLabel.Text = "Coins: " + coinsLeft.ToString();
     }
 
     private async void GetResponse()
@@ -136,6 +138,7 @@ public partial class WeaponsMenu : ContentPage
         buyButton.IsEnabled = false;
         useButton.IsEnabled = true;
         coinsLeft -= weapon.Cost;
+        coinLabel.Text = "Coins: " + coinsLeft.ToString();
     }
 
     async void useButton_Clicked(System.Object sender, System.EventArgs e)
@@ -151,7 +154,6 @@ public partial class WeaponsMenu : ContentPage
             weaponsUsed.Remove(weaponsCollection.SelectedItem as Weapon);
             useButton.Text = "Equip";
         }
-        Preferences.Default.Set("weaponsUsed", weaponsUsed);
 
     }
 
@@ -159,6 +161,11 @@ public partial class WeaponsMenu : ContentPage
     {
         var weapon = weaponsCollection.SelectedItem as Weapon;
         selectedImage.Source = weapon.ImageURL;
+        string difficulty;
+        if (weapon.Difficulty == 0) difficulty = "Easy";
+        else if (weapon.Difficulty == 1) difficulty = "Medium";
+        else difficulty = "Hard";
+        weaponData.Text = "Name: " + weapon.Name + "\nCost: " + weapon.Cost + "\nDamage: " + weapon.Damage + "\nDifficulty: " + difficulty;
         if (weapon.Bought)
         {
             if (!weaponsUsed.Contains(weapon)) useButton.Text = "Equip";

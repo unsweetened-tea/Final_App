@@ -17,10 +17,16 @@
     </Grid.ColumnDefinitions>
 
     <VerticalStackLayout Grid.Column="0">
-        <Image x:Name="selectedImage" HeightRequest="200"/>
+        <HorizontalStackLayout>
+            <Image x:Name="selectedImage" HeightRequest="150"/>
+            <Label x:Name="weaponData" FontSize="16" VerticalOptions="Center"/>
+        </HorizontalStackLayout>
+        
         <Button x:Name="buyButton" Text="Buy" Clicked="BuyButton_Click"/>
 
         <Button x:Name="useButton" Text="Equip" Clicked="useButton_Clicked"/>
+
+        <Label x:Name="coinLabel" FontSize="20"/>
 
     </VerticalStackLayout>
 
