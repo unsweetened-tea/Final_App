@@ -30,11 +30,11 @@
     </VerticalStackLayout>
 
 
-    <CollectionView x:Name="skinsCollection" ItemsLayout="VerticalGrid, 3" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" Grid.Column="1" Grid.Row="0" WidthRequest="400">
+    <CollectionView x:Name="skinsCollection" ItemsLayout="VerticalGrid, 3" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged" Grid.Column="1" Grid.Row="0">
     <CollectionView.ItemTemplate>
         <DataTemplate>
             <VerticalStackLayout>
-                 <Image Source="{Binding ImageURL}" MaximumHeightRequest="130"
+                 <Image Source="{Binding ImageURL}" HeightRequest="400" MaximumWidthRequest="400"
                         Aspect="AspectFit"
                         />
             </VerticalStackLayout>

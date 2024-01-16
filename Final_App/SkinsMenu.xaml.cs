@@ -12,44 +12,44 @@ public partial class SkinsMenu : ContentPage
     public SkinsMenu(int coins)
     {
         coinsLeft = coins;
-        InitializeComponent();
+        
         skins = new ObservableCollection<Skin>()
         {
             new Skin()
             {
                 Name = "Boy",
-                ImageURL = "boy.png",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\boy.png",
                 Cost = 0,
                 Bought = true,
             },
             new Skin()
             {
                 Name = "Dino",
-                ImageURL = "dino.png",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\dino.png",
                 Cost = 100,
             },
             new Skin()
             {
                 Name = "Knight",
-                ImageURL = "knight.png",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\knight.png",
                 Cost = 50,
             },
             new Skin()
             {
                 Name = "Red Hat",
-                ImageURL = "redhat.png",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\redhat.png",
                 Cost = 350
             },
             new Skin()
             {
                 Name = "Zombie",
-                ImageURL = "zombie.png",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\zombie.png",
                 Cost = 10
             },
             new Skin()
             {
                 Name = "Pumpkin",
-                ImageURL = "pumpkin.png",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\pumpkin.png",
                 Cost = 100
             }
         };
@@ -59,6 +59,7 @@ public partial class SkinsMenu : ContentPage
         buyButton.IsEnabled = false;
         useButton.IsEnabled = false;
         coinLabel.Text = "Coins: " + coinsLeft.ToString();
+        InitializeComponent();
     }
 
     public SkinsMenu(int coins, ObservableCollection<Skin> skins)
@@ -67,8 +68,8 @@ public partial class SkinsMenu : ContentPage
         InitializeComponent();
         this.skins = skins;
         skinsCollection.ItemsSource = skins;
-        skinsCollection.SelectedItem = skins[0];
         skin = skins[0];
+        skinsCollection.SelectedItem = skins[0];
         buyButton.IsEnabled = false;
         useButton.IsEnabled = false;
         coinLabel.Text = "Coins: " + coinsLeft.ToString();
@@ -78,7 +79,7 @@ public partial class SkinsMenu : ContentPage
     {
         coinsLeft = coins;
         InitializeComponent();
-        this.skins = skins;
+        //this.skins = skins;
         skinsCollection.ItemsSource = skins;
         skinsCollection.SelectedItem = skinUsed;
         skin = skinUsed;
@@ -133,21 +134,26 @@ public partial class SkinsMenu : ContentPage
     void CollectionView_SelectionChanged(System.Object sender, Microsoft.Maui.Controls.SelectionChangedEventArgs e)
     {
         var skin = skinsCollection.SelectedItem as Skin;
-        selectedImage.Source = skin.ImageURL;
-        skinData.Text = "Name: " + skin.Name + "\nCost: " + skin.Cost;
-        if (skin.Bought)
+        if (skin != null) 
         {
-            if (this.skin == skin) useButton.IsEnabled = false;
-            else useButton.IsEnabled = true;
-            buyButton.IsEnabled = false;
+            selectedImage.Source = skin.ImageURL;
+
+            skinData.Text = "Name: " + skin.Name + "\nCost: " + skin.Cost;
+            if (skin.Bought)
+            {
+                if (this.skin == skin) useButton.IsEnabled = false;
+                else useButton.IsEnabled = true;
+                buyButton.IsEnabled = false;
+            }
+            else
+            {
+                useButton.Text = "Equip";
+                useButton.IsEnabled = false;
+                if (skin.Cost > coinsLeft) buyButton.IsEnabled = false;
+                else buyButton.IsEnabled = true;
+            }
         }
-        else
-        {
-            useButton.Text = "Equip";
-            useButton.IsEnabled = false;
-            if (skin.Cost > coinsLeft) buyButton.IsEnabled = false;
-            else buyButton.IsEnabled = true;
-        }
+        
 
     }
 

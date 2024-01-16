@@ -8,7 +8,30 @@
     </ContentPage.Resources>
 
     <AbsoluteLayout>
-        <Label Text="COINS: 100" FontSize="20" FontAttributes="Bold" AbsoluteLayout.LayoutBounds="0, 0, 0.3, 0.3" AbsoluteLayout.LayoutFlags="All"/>
+        <Label x:Name="coinLabel" FontSize="20" FontAttributes="Bold" AbsoluteLayout.LayoutBounds="0, 0, 0.3, 0.3" AbsoluteLayout.LayoutFlags="All"/>
+
+        <Image 
+            x:Name="player"
+            AbsoluteLayout.LayoutBounds="0.2, 0.2, 200, 200"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            
+            />
+
+        <Image 
+            x:Name="weapon"
+            AbsoluteLayout.LayoutBounds="0.32, 0.27, 100, 100"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+    
+            />
+
+        <Image 
+            x:Name="enemy"
+            AbsoluteLayout.LayoutBounds="0.8, 0.2, 200, 200"
+            AbsoluteLayout.LayoutFlags="PositionProportional"
+            IsVisible="false"
+            
+            />
+
 
         <Label
             x:Name="prompt"

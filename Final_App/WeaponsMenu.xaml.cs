@@ -16,52 +16,53 @@ public partial class WeaponsMenu : ContentPage
         {
             new Weapon()
             {
-                Name = "AR-15",
-                ImageURL = "weapon1.png",
-                Cost = 200,
-                Damage = 10,
-                Difficulty = 1,
-            },
-            new Weapon()
-            {
-                Name = "Deagle",
-                ImageURL = "weapon2.png",
-                Difficulty = 0,
-                Damage = 5,
-                Cost = 100,
-            },
-            new Weapon()
-            {
-                Name = "Glock",
-                ImageURL = "weapon3.png",
-                Difficulty = 0,
-                Damage = 2,
-                Cost = 50,
-            },
-            new Weapon()
-            {
-                Name = "AK-47",
-                ImageURL = "weapon4.png",
-                Difficulty = 1,
-                Damage = 15,
-                Cost = 350
-            },
-            new Weapon()
-            {
                 Name = "Squirt",
-                ImageURL = "weapon5.png",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\weapon5.png",
                 Damage = 1,
                 Cost = 10,
                 Difficulty = 0
             },
             new Weapon()
             {
+                Name = "Glock",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\weapon3.png",
+                Difficulty = 0,
+                Damage = 2,
+                Cost = 50,
+            },
+            new Weapon()
+            {
+                Name = "Deagle",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\weapon2.png",
+                Difficulty = 0,
+                Damage = 5,
+                Cost = 100,
+            },
+            new Weapon()
+            {
                 Name = "Uzi",
-                ImageURL = "weapon6.png",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\weapon6.png",
                 Damage = 8,
                 Difficulty = 0,
                 Cost = 100
-            }
+            },
+            new Weapon()
+            {
+                Name = "AR-15",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\weapon1.png",
+                Cost = 200,
+                Damage = 10,
+                Difficulty = 1,
+            },
+            new Weapon()
+            {
+                Name = "AK-47",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\weapon4.png",
+                Difficulty = 2,
+                Damage = 15,
+                Cost = 350
+            },
+            
         };
         weaponsUsed = new ObservableCollection<Weapon>()
         {
@@ -80,10 +81,16 @@ public partial class WeaponsMenu : ContentPage
         coinsLeft = coins;
         InitializeComponent();
         this.weapons = weapons;
-        weaponsUsed = new ObservableCollection<Weapon>()
+        if (weaponsUsed == null)
         {
+            weaponsUsed = new ObservableCollection<Weapon>()
+            {
 
-        };
+            };
+        }
+        
+        weaponsUsed.Add(weapons[0]);
+        weapons[0].Bought = true;
         weaponsCollection.ItemsSource = weapons;
         weaponsCollection.SelectedItem = weapons[0];
 
@@ -160,26 +167,30 @@ public partial class WeaponsMenu : ContentPage
     void CollectionView_SelectionChanged(System.Object sender, Microsoft.Maui.Controls.SelectionChangedEventArgs e)
     {
         var weapon = weaponsCollection.SelectedItem as Weapon;
-        selectedImage.Source = weapon.ImageURL;
-        string difficulty;
-        if (weapon.Difficulty == 0) difficulty = "Easy";
-        else if (weapon.Difficulty == 1) difficulty = "Medium";
-        else difficulty = "Hard";
-        weaponData.Text = "Name: " + weapon.Name + "\nCost: " + weapon.Cost + "\nDamage: " + weapon.Damage + "\nDifficulty: " + difficulty;
-        if (weapon.Bought)
+        if (weapon != null) 
         {
-            if (!weaponsUsed.Contains(weapon)) useButton.Text = "Equip";
-            else useButton.Text = "Unequip";
-            useButton.IsEnabled = true;
+            selectedImage.Source = weapon.ImageURL;
+            string difficulty;
+            if (weapon.Difficulty == 0) difficulty = "Easy";
+            else if (weapon.Difficulty == 1) difficulty = "Medium";
+            else difficulty = "Hard";
+            weaponData.Text = "Name: " + weapon.Name + "\nCost: " + weapon.Cost + "\nDamage: " + weapon.Damage + "\nDifficulty: " + difficulty;
+            if (weapon.Bought)
+            {
+                if (!weaponsUsed.Contains(weapon)) useButton.Text = "Equip";
+                else useButton.Text = "Unequip";
+                useButton.IsEnabled = true;
 
-            buyButton.IsEnabled = false;
+                buyButton.IsEnabled = false;
+            }
+            else
+            {
+                useButton.Text = "Equip";
+                useButton.IsEnabled = false;
+                buyButton.IsEnabled = true;
+            }
         }
-        else
-        {
-            useButton.Text = "Equip";
-            useButton.IsEnabled = false;
-            buyButton.IsEnabled = true;
-        }
+        
 
     }
 

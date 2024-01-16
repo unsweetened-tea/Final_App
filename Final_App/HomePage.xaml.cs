@@ -41,38 +41,38 @@ public partial class HomePage : ContentPage
             new Skin()
             {
                 Name = "Boy",
-                ImageURL = "boy.png",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\boy.png",
                 Cost = 0,
                 Bought = true,
             },
             new Skin()
             {
                 Name = "Dino",
-                ImageURL = "dino.png",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\dino.png",
                 Cost = 100,
             },
             new Skin()
             {
                 Name = "Knight",
-                ImageURL = "knight.png",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\knight.png",
                 Cost = 50,
             },
             new Skin()
             {
                 Name = "Red Hat",
-                ImageURL = "redhat.png",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\redhat.png",
                 Cost = 350
             },
             new Skin()
             {
                 Name = "Zombie",
-                ImageURL = "zombie.png",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\zombie.png",
                 Cost = 10
             },
             new Skin()
             {
                 Name = "Pumpkin",
-                ImageURL = "pumpkin.png",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\pumpkin.png",
                 Cost = 100
             }
         };
@@ -81,57 +81,69 @@ public partial class HomePage : ContentPage
         {
             new Weapon()
             {
-                Name = "AR-15",
-                ImageURL = "weapon1.png",
-                Cost = 200,
-                Damage = 10,
-                Difficulty = 1,
-            },
-            new Weapon()
-            {
-                Name = "Deagle",
-                ImageURL = "weapon2.png",
-                Difficulty = 0,
-                Damage = 5,
-                Cost = 100,
+                Name = "Squirt",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\weapon5.png",
+                Damage = 1,
+                Cost = 10,
+                Difficulty = 0
             },
             new Weapon()
             {
                 Name = "Glock",
-                ImageURL = "weapon3.png",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\weapon3.png",
                 Difficulty = 0,
                 Damage = 2,
                 Cost = 50,
             },
             new Weapon()
             {
-                Name = "AK-47",
-                ImageURL = "weapon4.png",
-                Difficulty = 1,
-                Damage = 15,
-                Cost = 350
-            },
-            new Weapon()
-            {
-                Name = "Squirt",
-                ImageURL = "weapon5.png",
-                Damage = 1,
-                Cost = 10
+                Name = "Deagle",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\weapon2.png",
+                Difficulty = 0,
+                Damage = 5,
+                Cost = 100,
             },
             new Weapon()
             {
                 Name = "Uzi",
-                ImageURL = "weapon6.png",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\weapon6.png",
                 Damage = 8,
                 Difficulty = 0,
                 Cost = 100
-            }
+            },
+            new Weapon()
+            {
+                Name = "AR-15",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\weapon1.png",
+                Cost = 200,
+                Damage = 10,
+                Difficulty = 1,
+            },
+            new Weapon()
+            {
+                Name = "AK-47",
+                ImageURL = "C:\\Users\\leogo\\source\\repos\\Final_App\\Final_App\\Resources\\Images\\weapon4.png",
+                Difficulty = 2,
+                Damage = 15,
+                Cost = 350
+            },
         };
     }
 
     private void start_Clicked(object sender, EventArgs e)
     {
-        var page = new Play(selectedCategory);
+        if (curSkin == null) 
+        {
+            curSkin = skins[0];
+        }
+        if (weaponsUsed == null)
+        {
+            weaponsUsed = new ObservableCollection<Weapon>()
+            {
+                weapons[0]
+            };
+        }
+        var page = new Play(selectedCategory, coins, curSkin, weaponsUsed);
         Navigation.PushAsync(page);
     }
 

@@ -23,14 +23,14 @@
 
         <ImageButton x:Name="rightButton"
             Source="right_arrow.png"
-            AbsoluteLayout.LayoutBounds="0.75, 0.85, 30, 30"
+            AbsoluteLayout.LayoutBounds="0.75, 0.85, 50, 50"
             AbsoluteLayout.LayoutFlags="PositionProportional"
             Clicked="rightButton_Clicked"
             />
 
         <ImageButton x:Name="leftButton"
             Source="left_arrow.png"
-            AbsoluteLayout.LayoutBounds="0.65, 0.85, 30, 30"
+            AbsoluteLayout.LayoutBounds="0.65, 0.85, 50, 50"
             AbsoluteLayout.LayoutFlags="PositionProportional"
             Clicked="leftButton_Clicked"
             />
