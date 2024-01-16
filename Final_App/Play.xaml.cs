@@ -281,7 +281,9 @@ public partial class Play : ContentPage
         text = currentQuestion.spanish;
         prompt.Text = currentQuestion.english;
 
-        string[] words = text.Split(' ');
+        string[] wordspre = text.Split(' ');
+        string[] words = wordspre.Take(wordspre.Length - 1).ToArray();
+
         // remove empty nothing from end
 
         Random random = new Random();
