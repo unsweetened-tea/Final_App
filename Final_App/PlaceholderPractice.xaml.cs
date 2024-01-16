@@ -77,12 +77,7 @@ public partial class PlaceholderPractice : ContentPage
 
     void flashcard_Clicked(System.Object sender, System.EventArgs e)
     {
-        if (englishRevealed) {
-            englishRevealed = false;
-        } else
-        {
-            englishRevealed = true;
-        }
+        englishRevealed = !englishRevealed;
         updateFlashcard();
     }
 
