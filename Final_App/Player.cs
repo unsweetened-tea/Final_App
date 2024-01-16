@@ -20,6 +20,7 @@ public class Player : Character
 
 	}
 
+
 	public override void Move(int dis)
 	{
 		this.xPos += dis;

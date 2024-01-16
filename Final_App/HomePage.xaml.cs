@@ -18,6 +18,11 @@ public class SkinsArgs : EventArgs
     public ObservableCollection<Skin> skins;
 }
 
+public class PlayArgs : EventArgs
+{
+    public int coins;
+}
+
 public partial class HomePage : ContentPage
 {
     Label selected;
@@ -144,8 +149,11 @@ public partial class HomePage : ContentPage
             };
         }
         var page = new Play(selectedCategory, coins, curSkin, weaponsUsed);
+        page.NavigateAway += onPlayNavigatAway;
         Navigation.PushAsync(page);
+        coinLabel.Text = "Coins: " + coins.ToString();
     }
+
 
     private void practice_Clicked(object sender, EventArgs e)
     {
@@ -228,5 +236,11 @@ public partial class HomePage : ContentPage
         coinLabel.Text = "Coins: " + coins.ToString();
     }
 
+
+    private void onPlayNavigatAway(object sender, PlayArgs e)
+    {
+        coins = e.coins;
+        coinLabel.Text = "Coins: " + coins.ToString();
+    }
 
 }

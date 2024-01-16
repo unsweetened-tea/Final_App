@@ -10,6 +10,9 @@ namespace Final_App;
 
 public partial class Play : ContentPage
 {
+    public event EventHandler<PlayArgs> NavigateAway;
+
+
     public string difficulty = "";
     public string selectedCategory = "";
     public int questionsRemaining = 3;
@@ -263,10 +266,13 @@ public partial class Play : ContentPage
         {
             if (difficulty.Equals("easy"))
                 coinsLeft += 1;
-            if (difficulty.Equals("medium"))
+            else if (difficulty.Equals("medium"))
                 coinsLeft += 5;
-            if (difficulty.Equals("hard"))
+            else if (difficulty.Equals("hard"))
                 coinsLeft += 10;
+
+            coinLabel.Text = "Coins: " + coinsLeft.ToString();
+
 
             if (questionsRemaining > 0)
             {
@@ -379,6 +385,12 @@ public partial class Play : ContentPage
 
         input = newstr;
         response.Text = input;
+    }
+
+    protected override void OnDisappearing()
+    {
+        base.OnDisappearing();
+        NavigateAway?.Invoke(this, new PlayArgs() { coins = this.coinsLeft});
     }
 
 }
