@@ -261,6 +261,13 @@ public partial class Play : ContentPage
 
         if (input.Equals(answer))
         {
+            if (difficulty.Equals("easy"))
+                coinsLeft += 1;
+            if (difficulty.Equals("medium"))
+                coinsLeft += 5;
+            if (difficulty.Equals("hard"))
+                coinsLeft += 10;
+
             if (questionsRemaining > 0)
             {
                 difficultyToggle();

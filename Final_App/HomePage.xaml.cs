@@ -34,7 +34,7 @@ public partial class HomePage : ContentPage
         selected = fam;
         selectedCategory = "family";
         fam.TextColor = Colors.LightBlue;
-        coins = 10000;
+        coins = 0;
         coinLabel.Text = "Coins: " + coins.ToString();
         skins = new ObservableCollection<Skin>()
         {
