@@ -26,11 +26,13 @@ public partial class HomePage : ContentPage
     ObservableCollection<Weapon> weapons;
     ObservableCollection<Skin> skins;
     Skin curSkin;
+    public string selectedCategory { get; set; }
 
     public HomePage()
     {
         InitializeComponent();
         selected = fam;
+        selectedCategory = "family";
         fam.TextColor = Colors.LightBlue;
         coins = 10000;
         coinLabel.Text = "Coins: " + coins.ToString();
@@ -129,7 +131,7 @@ public partial class HomePage : ContentPage
 
     private void start_Clicked(object sender, EventArgs e)
     {
-        var page = new Play();
+        var page = new Play(selectedCategory);
         Navigation.PushAsync(page);
     }
 
@@ -165,18 +167,21 @@ public partial class HomePage : ContentPage
             fam.TextColor = Colors.LightBlue;
             selected.TextColor = Colors.Black;
             selected = fam;
+            selectedCategory = "family";
         }
         else if (URL.Equals("food.png"))
         {
             fod.TextColor = Colors.LightBlue;
             selected.TextColor = Colors.Black;
             selected = fod;
+            selectedCategory = "food";
         }
         else if (URL.Equals("likedislike.png"))
         {
             fav.TextColor = Colors.LightBlue;
             selected.TextColor = Colors.Black;
             selected = fav;
+            selectedCategory = "favorites";
             
         }
         else if (URL.Equals("travel.png"))
@@ -184,12 +189,14 @@ public partial class HomePage : ContentPage
             trav.TextColor = Colors.LightBlue;
             selected.TextColor = Colors.Black;
             selected = trav;
+            selectedCategory = "travel";
         }
         else if (URL.Equals("basics.png"))
         {
             gret.TextColor = Colors.LightBlue;
             selected.TextColor = Colors.Black;
             selected = gret;
+            selectedCategory = "greetings";
         }
     }
 
@@ -208,5 +215,6 @@ public partial class HomePage : ContentPage
         skins = e.skins;
         coinLabel.Text = "Coins: " + coins.ToString();
     }
+
 
 }
